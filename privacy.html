@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Chair Fly</title>
+<meta name="description" content="Chair Fly's privacy policy: what data the app collects (none), how in-app purchases work through Apple, and how the chairflytrainer.com waitlist email is handled.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --navy-950: #070c28;
+    --navy-900: #0e1951;
+    --navy-800: #182869;
+    --navy-700: #24357f;
+    --paper: #f6f4ef;
+    --paper-dim: #ece9e1;
+    --ink: #12172a;
+    --ink-soft: #454b63;
+    --slate: #5b6584;
+    --amber: #e8a33d;
+    --amber-dim: #c98a2b;
+    --hairline: rgba(18, 23, 42, 0.12);
+    --hairline-dark: rgba(246, 244, 239, 0.18);
+    --radius: 10px;
+    --shadow: 0 18px 40px -22px rgba(7, 12, 40, 0.45);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2 {
+    font-family: "Big Shoulders Display", "Arial Narrow", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin: 0;
+    line-height: 1;
+  }
+
+  p, li { margin: 0; }
+  a { color: var(--amber-dim); }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+
+  header.nav {
+    background: var(--navy-950);
+    border-bottom: 1px solid var(--hairline-dark);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px clamp(20px, 4vw, 48px);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .brand {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 0.02em;
+    color: var(--paper);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .back-link {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(246,244,239,0.7);
+    text-decoration: none;
+  }
+  .back-link:hover { color: var(--amber); }
+
+  .hero {
+    background: radial-gradient(120% 140% at 78% -20%, var(--navy-700) 0%, var(--navy-900) 45%, var(--navy-950) 100%);
+    color: var(--paper);
+    padding: 56px 0 48px;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber);
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin-bottom: 14px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: currentColor;
+    display: inline-block;
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 2.7rem); }
+  .updated {
+    margin-top: 14px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.8rem;
+    color: rgba(246,244,239,0.6);
+  }
+
+  main { padding: 48px 0 72px; }
+  .intro {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin-bottom: 44px;
+  }
+
+  section.policy-section {
+    padding: 0;
+    margin-bottom: 40px;
+  }
+  section.policy-section h2 {
+    font-size: 1.3rem;
+    color: var(--navy-900);
+    margin-bottom: 14px;
+  }
+  section.policy-section p + p,
+  section.policy-section ul + p,
+  section.policy-section p + ul {
+    margin-top: 12px;
+  }
+  section.policy-section p, section.policy-section li {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+  }
+  section.policy-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  section.policy-section li {
+    display: flex;
+    gap: 10px;
+  }
+  section.policy-section li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    margin-top: 7px;
+    background: var(--amber);
+    border-radius: 1px;
+    flex: none;
+  }
+
+  .callout {
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--amber);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-top: 14px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  footer {
+    background: var(--navy-950);
+    color: rgba(246,244,239,0.55);
+    padding: 32px 0;
+    font-size: 0.82rem;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  footer a { color: rgba(246,244,239,0.75); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">Chair Fly</a>
+    <a class="back-link" href="/">&larr; Back to home</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: August 26, 2026</p>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <p class="intro">
+      Chair Fly ("the app," "we," "us") is an instrument cross-check trainer built by an independent
+      developer. This page explains what information Chair Fly collects (very little), how the optional
+      in-app purchase works, and how the email addresses collected on this website are handled. If you
+      have any questions after reading this, email us any time at
+      <a href="mailto:hello@chairflytrainer.com">hello@chairflytrainer.com</a>.
+    </p>
+
+    <section class="policy-section">
+      <h2>Information Collected By The App</h2>
+      <p>Chair Fly is built to run entirely on your iPad, with no account and no server behind it. Specifically:</p>
+      <ul>
+        <li>Chair Fly does not require you to create an account, sign in, or provide any personal information to use it.</li>
+        <li>Chair Fly does not collect, store, or transmit any personal information from your device.</li>
+        <li>The app reads your iPad's built-in motion sensors (accelerometer and gyroscope, via Apple's CoreMotion framework) to power the tilt-based flight controls. This data is processed in real time, entirely on your device, purely to run the simulation — it is never transmitted anywhere and never stored.</li>
+        <li>Chair Fly does not use analytics, crash reporting, advertising, or any third-party tracking software.</li>
+        <li>Chair Fly does not access your location, camera, microphone, contacts, photos, or any other personal data category.</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>In-App Purchases</h2>
+      <p>Chair Fly offers one optional one-time purchase — the Glass Cockpit unlock — handled entirely through Apple's own In-App Purchase system.</p>
+      <ul>
+        <li>All payment details are collected and processed by Apple, not by us.</li>
+        <li>We never see, receive, or store your payment information, billing address, or full name.</li>
+        <li>Apple may associate the purchase with your Apple ID for their own records; that is governed by Apple's privacy policy, not ours.</li>
+      </ul>
+      <p class="callout">See Apple's own privacy policy for how they handle App Store purchases: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>This Website (chairflytrainer.com)</h2>
+      <ul>
+        <li>If you enter your email address on this website to be notified at launch, we store it for that single purpose: to send you a one-time announcement when Chair Fly is available.</li>
+        <li>We do not sell, rent, or share your email address with any third party.</li>
+        <li>We will not send you ongoing marketing emails beyond that launch notice.</li>
+        <li>You can ask us to delete your email at any time by writing to <a href="mailto:hello@chairflytrainer.com">hello@chairflytrainer.com</a>.</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Children's Privacy</h2>
+      <p>
+        Chair Fly is intended for pilots and student pilots, not for children, and is not directed at
+        anyone under 13. We do not knowingly collect personal information from children under 13. If you
+        believe a child has provided us information, contact us and we'll delete it promptly.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Data Retention</h2>
+      <p>
+        Because Chair Fly does not collect data through the app itself, there is nothing generated by app
+        usage for us to retain. Email addresses submitted through this website are kept only until the
+        launch announcement is sent, or until you ask us to remove them sooner.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Changes To This Policy</h2>
+      <p>
+        As Chair Fly develops, this policy may be updated to reflect new features. Any changes will be
+        posted on this page with a revised "last updated" date above.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Contact Us</h2>
+      <p>
+        Questions about this policy or how your information is handled? Email us at
+        <a href="mailto:hello@chairflytrainer.com">hello@chairflytrainer.com</a>.
+      </p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>&copy; 2026 Chair Fly. Training use only — not for real-world flight operations.</div>
+    <a href="/">chairflytrainer.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
