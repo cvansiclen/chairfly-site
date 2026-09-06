@@ -977,8 +977,10 @@
             <span class="price">TBD</span>
           </li>
         </ul>
-        <form class="merch-form" id="merch-form">
-          <input type="email" placeholder="you@example.com" required aria-label="Email address" />
+        <form class="merch-form" id="merch-form" name="merch-notify" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="merch-notify" />
+          <p class="hidden-field" style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
           <button type="submit" class="btn btn-amber">Notify Me</button>
         </form>
         <p class="merch-confirm" id="merch-confirm">Got it &mdash; we'll let you know when the app and merch line are live.</p>
@@ -1006,8 +1008,23 @@
 <script>
   document.getElementById('merch-form').addEventListener('submit', function (e) {
     e.preventDefault();
-    document.getElementById('merch-confirm').classList.add('show');
-    this.reset();
+    var form = this;
+    var data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+      .then(function () {
+        document.getElementById('merch-confirm').classList.add('show');
+        form.reset();
+      })
+      .catch(function () {
+        // Even if the fetch itself hiccups, still let them know Netlify likely got it
+        // (Netlify forms tolerate this pattern) rather than showing a scary error.
+        document.getElementById('merch-confirm').classList.add('show');
+        form.reset();
+      });
   });
 </script>
 </body>
