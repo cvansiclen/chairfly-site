@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Disclaimer &amp; Liability — Chair Fly</title>
+<meta name="description" content="Chair Fly's disclaimer: an educational training aid, not a certified flight simulator, not FAA-approved, and never to be used for real-world navigation.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --navy-950: #070c28;
+    --navy-900: #0e1951;
+    --navy-800: #182869;
+    --navy-700: #24357f;
+    --paper: #f6f4ef;
+    --paper-dim: #ece9e1;
+    --ink: #12172a;
+    --ink-soft: #454b63;
+    --slate: #5b6584;
+    --amber: #e8a33d;
+    --amber-dim: #c98a2b;
+    --hairline: rgba(18, 23, 42, 0.12);
+    --hairline-dark: rgba(246, 244, 239, 0.18);
+    --radius: 10px;
+    --shadow: 0 18px 40px -22px rgba(7, 12, 40, 0.45);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2 {
+    font-family: "Big Shoulders Display", "Arial Narrow", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin: 0;
+    line-height: 1;
+  }
+
+  p, li { margin: 0; }
+  a { color: var(--amber-dim); }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+
+  header.nav {
+    background: var(--navy-950);
+    border-bottom: 1px solid var(--hairline-dark);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px clamp(20px, 4vw, 48px);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .brand {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 0.02em;
+    color: var(--paper);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .back-link {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(246,244,239,0.7);
+    text-decoration: none;
+  }
+  .back-link:hover { color: var(--amber); }
+
+  .hero {
+    background: radial-gradient(120% 140% at 78% -20%, var(--navy-700) 0%, var(--navy-900) 45%, var(--navy-950) 100%);
+    color: var(--paper);
+    padding: 56px 0 48px;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber);
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin-bottom: 14px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: currentColor;
+    display: inline-block;
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 2.7rem); }
+  .updated {
+    margin-top: 14px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.8rem;
+    color: rgba(246,244,239,0.6);
+  }
+
+  main { padding: 48px 0 72px; }
+  .intro {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin-bottom: 44px;
+  }
+
+  section.policy-section {
+    padding: 0;
+    margin-bottom: 40px;
+  }
+  section.policy-section h2 {
+    font-size: 1.3rem;
+    color: var(--navy-900);
+    margin-bottom: 14px;
+  }
+  section.policy-section p + p,
+  section.policy-section ul + p,
+  section.policy-section p + ul {
+    margin-top: 12px;
+  }
+  section.policy-section p, section.policy-section li {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+  }
+  section.policy-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  section.policy-section li {
+    display: flex;
+    gap: 10px;
+  }
+  section.policy-section li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    margin-top: 7px;
+    background: var(--amber);
+    border-radius: 1px;
+    flex: none;
+  }
+
+  .callout {
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--amber);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-top: 14px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  footer {
+    background: var(--navy-950);
+    color: rgba(246,244,239,0.55);
+    padding: 32px 0;
+    font-size: 0.82rem;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  footer a { color: rgba(246,244,239,0.75); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">Chair Fly</a>
+    <a class="back-link" href="/">&larr; Back to home</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Legal</p>
+    <h1>Disclaimer &amp; Liability</h1>
+    <p class="updated">Last updated: September 8, 2026</p>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <p class="intro">
+      Chair Fly is an educational training aid designed to help pilots practice instrument cross-check
+      habits and procedural familiarity. It is not a certified flight simulator, not FAA-approved, and
+      not endorsed by, affiliated with, or reviewed by the Federal Aviation Administration or any
+      aviation regulatory body.
+    </p>
+
+    <section class="policy-section">
+      <h2>Not For Real Navigation</h2>
+      <p>
+        Chair Fly must never be used for actual aircraft navigation, flight planning, or any real-world
+        flight operation. Nothing in this app substitutes for a certified flight simulator, an
+        authorized flight instructor, or actual flight training required by the FAA.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>No Warranty</h2>
+      <p>
+        Chair Fly is provided "as is," without warranties of any kind, express or implied, including
+        accuracy of instrument behavior, flight physics, or procedural depictions. Real aircraft
+        systems, regulations, and procedures may differ from what is depicted in this app.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Assumption of Risk / Limitation of Liability</h2>
+      <p>
+        By using Chair Fly, you acknowledge that it is intended solely for educational and recreational
+        purposes. Chair Fly assumes no liability for any damages, losses, injuries, certificate actions,
+        or other consequences arising from use or misuse of this app, including reliance on its content
+        in any real-world aviation context. Use of this app does not satisfy any FAA training, currency,
+        or certification requirement.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Your Responsibility</h2>
+      <p>
+        All actual flight training, currency, and proficiency must be conducted under the supervision of
+        a certificated flight instructor in accordance with applicable FAA regulations.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Changes To This Disclaimer</h2>
+      <p>
+        As Chair Fly develops, this disclaimer may be updated to reflect new features. Any changes will
+        be posted on this page with a revised "last updated" date above.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Contact Us</h2>
+      <p>
+        Questions about this disclaimer? Email us at
+        <a href="mailto:info@chairflytrainer.com">info@chairflytrainer.com</a>.
+      </p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>&copy; 2026 Chair Fly. Training use only — not for real-world flight operations.</div>
+    <a href="/">chairflytrainer.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
