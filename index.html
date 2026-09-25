@@ -430,6 +430,8 @@
   .audience-card.emphasis p { font-size: 1.0rem; color: var(--ink); }
 
   /* ---------- HOW IT WORKS ---------- */
+  .promo-video { display: flex; justify-content: center; margin-top: 40px; }
+  .promo-video video { width: 100%; max-width: 340px; aspect-ratio: 9 / 16; border-radius: 18px; border: 1px solid var(--hairline-dark); box-shadow: 0 18px 40px rgba(0,0,0,0.35); background: var(--navy-900); }
   .how-it-works { background: var(--navy-950); color: var(--paper); }
   .how-it-works .eyebrow { color: var(--amber); }
   .how-it-works .section-head h2 { color: var(--paper); }
@@ -886,6 +888,9 @@
           <p>Stabilize it down to minimums and you'll know &mdash; land it clean, or go around and try again.</p>
           <p class="step-badge">Glass Cockpit Unlock</p>
         </div>
+      </div>
+      <div class="promo-video">
+        <video src="chairfly-promo.mp4" poster="chairfly-promo-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="ChairFly promo video: tilt your iPad to fly the attitude"></video>
       </div>
     </div>
   </section>
