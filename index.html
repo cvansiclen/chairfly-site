@@ -1201,7 +1201,7 @@
   </div>
 </div>
 <script>
-/* Escort biplane (10/12/26, rev 2): after the tow-banner intro, a little biplane follows you down
+/* Escort biplane (10/12/26, rev 3): after the tow-banner intro, a little biplane follows you down
    the page. It never loiters over content: in each section it either LANDS on the top edge of a
    card (gear down, parked on the corner) or does a quick FLYBY through open space and exits
    offscreen. Moving to a new section, it takes off and leaves the screen first.
@@ -1212,7 +1212,7 @@
   var plane = document.getElementById('escort');
   if (!layer || !plane || !window.requestAnimationFrame) return;
 
-  var P = { x: -100, y: 200, a: 0, roll: 1 };
+  var P = { x: -400, y: -400, a: 0, roll: 1 };
   var token = 0, current = null, lastDot = null, parked = false;
 
   function q(sel) { return document.querySelector(sel); }
@@ -1245,6 +1245,7 @@
       if (s.angle !== undefined) P.a = s.angle;
       P.x = p[0]; P.y = p[1]; P.roll = s.roll ? s.roll(t) : 1;
       if (s.trail) dropDot();
+      if (s.smoke && Math.random() < 0.4) puff();
       draw(s.free, s.mirror);
       if (t >= 1) { i++; t0 = null; }
       requestAnimationFrame(step);
@@ -1256,6 +1257,11 @@
     lastDot = [P.x, P.y];
     var d = document.createElement('span'); d.className = 'escort-dot'; d.style.left = P.x + 'px'; d.style.top = P.y + 'px';
     layer.appendChild(d); setTimeout(function () { d.remove(); }, 3300);
+  }
+  function puff() {
+    var d = document.createElement('span'); d.className = 'escort-smoke';
+    d.style.left = (P.x - Math.cos(P.a) * pw() / 2) + 'px'; d.style.top = (P.y - Math.sin(P.a) * pw() / 2) + 'px';
+    layer.appendChild(d); setTimeout(function () { d.remove(); }, 1700);
   }
   var easeOut = function (t) { return 1 - Math.pow(1 - t, 3); };
   var easeIn = function (t) { return t * t; };
@@ -1280,43 +1286,89 @@
       curve(x0 + dir * 40, y0, x0 + dir * 160, y0 - 10, x1, y1, 900, { ease: easeIn })];
   }
 
-  // Land on the top edge of el, parked near its right (or left) corner, arriving from that side.
-  function landOn(el, side, call, msg) {
-    if (!el) return;
-    var r = docRect(el), right = side !== 'left';
-    var ty = r.t - ph() * 0.43;                            // wheels on the edge
-    var stop = right ? r.r - pw() * 0.75 : r.l + pw() * 0.75;
-    var td = right ? stop + 70 : stop - 70;                // touchdown point
-    var sx = right ? offR() : offL(), sy = ty - 170;
-    var dirA = right ? Math.PI : 0;
-    run(departure().concat([
-      teleport(sx, sy), { call: function () { gear(false); } },
-      curve(sx, sy, (sx + td) / 2, sy + 20, td + (right ? 90 : -90), ty - 40, 1300),
+  // Approach + touchdown on the top edge of el, parked at its right corner, arriving from (x0, y0).
+  function landSegs(el, x0, y0) {
+    var r = docRect(el), ty = r.t - ph() * 0.43, stop = r.r - pw() * 0.75;
+    var fromRight = x0 > stop, dir = fromRight ? -1 : 1;
+    var td = stop - dir * 70, fx = td - dir * 90, fy = ty - 40;
+    return [
+      curve(x0, y0, (x0 + fx) / 2, Math.min(y0, fy) - 40, fx, fy, Math.max(700, Math.min(1600, Math.hypot(fx - x0, fy - y0) / 0.7))),
       { call: function () { gear(true); } },
-      line(td + (right ? 90 : -90), ty - 40, td, ty, 650),
-      line(td, ty, stop, ty, 750, { ease: easeOut, angle: dirA }),
-      { call: function () { parked = true; } }
-    ]));
+      line(fx, fy, td, ty, 600),
+      line(td, ty, stop, ty, 750, { ease: easeOut, angle: fromRight ? Math.PI : 0 }),
+      { call: function () { parked = true; } }];
   }
-  // Fly straight through open space at y and exit the far side.
-  function flyby(y, msg, trail, fromRight) {
-    var x0 = fromRight ? offR() : offL(), x1 = fromRight ? offL() : offR();
-    run(departure().concat([
-      teleport(x0, y), { call: function () { gear(false); } },
-      line(x0, y, x1, y, Math.max(1800, vw() * 2.4), { trail: trail, angle: fromRight ? Math.PI : 0 })
-    ]));
+  function loopSegs(cx, cy, R, dir, dur) {          // vertical loop starting/ending at (cx, cy) moving dir
+    return [{ dur: dur || 1500, free: true, mirror: dir < 0, smoke: true,
+      f: function (t) { var th = t * Math.PI * 2; return [cx + dir * R * Math.sin(th), cy - R + R * Math.cos(th)]; } }];
+  }
+  function rollSegs(x0, y, x1, dur) {               // barrel roll in level flight from x0 to x1
+    var left = x1 < x0;
+    return [line(x0, y, x1, y, dur || 1600, { angle: left ? Math.PI : 0, smoke: true, roll: function (t) { return Math.cos(t * Math.PI * 4); } })];
+  }
+  function startFrom(side, y) {                     // leave the current spot (if visible), re-enter from a side
+    var x = side === 'left' ? offL() : offR();
+    return departure().concat([teleport(x, y), { call: function () { gear(false); parked = false; } }]);
   }
 
   var moves = {
-    top: function () { landOn(q('.hero-badge'), 'right', null, ''); },
-    'what-it-is': function () { landOn(q('#what-it-is .tier-card.glass') || q('#what-it-is .tier-card'), 'right', null, ''); },
-    'how-it-works': function () {
-      var st = q('#how-it-works .steps'); if (!st) return;
-      flyby(docRect(st).t - ph() * 0.62, '', true, false);
+    // Back at the top: the plane just heads off and waits offscreen.
+    top: function () { run(departure()); },
+    // Comes back in from the left trailing smoke, loops over the video, lands on the Glass Cockpit card.
+    'what-it-is': function () {
+      var v = docRect(q('#what-it-is .promo-video') || q('#what-it-is h2')), card = q('#what-it-is .tier-card.glass') || q('#what-it-is .tier-card');
+      var y = Math.max(scrollY + 160, v.t + v.h * 0.35), lx = Math.min(vw() * 0.45, v.l + v.w * 0.5);
+      run(startFrom('left', y).concat(
+        [line(offL(), y, lx, y, 1100, { smoke: true, angle: 0 })],
+        loopSegs(lx, y, 75, 1, 1600),
+        landSegs(card, lx, y)));
     },
-    'who-its-for': function () { landOn(q('#who-its-for .audience-card.emphasis'), 'right', null, ''); },
-    goal: function () { landOn(q('#goal .qr-card') || q('#goal .goal-card'), 'right', null, ''); },
-    merch: function () { landOn(q('footer') || q('#merch'), 'right', null, ''); }
+    // Flies the four steps like an RNAV approach (magenta trail through 01-04), then exits right.
+    'how-it-works': function () {
+      var nums = document.querySelectorAll('#how-it-works .step .num'); if (!nums.length) return;
+      var pts = [].map.call(nums, function (n) { var r = docRect(n); return [r.l + r.w + 30, r.t + r.h / 2]; });
+      var segs = startFrom('left', pts[0][1] - 60).concat([line(offL(), pts[0][1] - 60, pts[0][0], pts[0][1], 1000, { trail: true })]);
+      for (var i = 1; i < pts.length; i++) {
+        var a = pts[i - 1], b = pts[i];
+        segs.push(curve(a[0], a[1], (a[0] + b[0]) / 2, Math.min(a[1], b[1]) - 40, b[0], b[1], 850, { trail: true }));
+      }
+      var last = pts[pts.length - 1];
+      segs.push(curve(last[0], last[1], last[0] + 200, last[1] - 20, offR(), last[1] - 160, 1000, { trail: true, ease: easeIn }));
+      run(segs);
+    },
+    // Two laps of a holding pattern around the Instrument Pilots card, then lands on it.
+    'who-its-for': function () {
+      var c = q('#who-its-for .audience-card.emphasis'); if (!c) return;
+      var r = docRect(c), pad = 26, R = r.h / 2 + pad, cy = r.t + r.h / 2;
+      var x1 = r.l + R * 0.6, x2 = r.r - R * 0.6; if (x2 < x1) x2 = x1;
+      var L = x2 - x1, arc = Math.PI * R, total = 2 * L + 2 * arc;
+      function race(s) {
+        s = s % total;
+        if (s < L) return [x1 + s, cy - R]; s -= L;
+        if (s < arc) { var a = -Math.PI / 2 + s / R; return [x2 + R * Math.cos(a), cy + R * Math.sin(a)]; } s -= arc;
+        if (s < L) return [x2 - s, cy + R]; s -= L;
+        var b = Math.PI / 2 + s / R; return [x1 + R * Math.cos(b), cy + R * Math.sin(b)];
+      }
+      run(startFrom('right', cy - R - 120).concat(
+        [curve(offR(), cy - R - 120, x2 + R, cy - R - 120, x1, cy - R, 1200)],
+        [{ dur: 6400, free: true, f: function (t) { return race(t * total * 2); } }],
+        landSegs(c, x1, cy - R)));
+    },
+    // Barrel rolls in, then lands on the App Store badge in the QR card.
+    goal: function () {
+      var target = q('#goal .app-store-badge') || q('#goal .qr-card'); if (!target) return;
+      var r = docRect(target), y = r.t - 150;
+      run(startFrom('left', y).concat(rollSegs(offL(), y, r.l - 260, 1700), landSegs(target, r.l - 260, y)));
+    },
+    // Smoke-trail swoop past the merch list with a loop, then off the right side.
+    merch: function () {
+      var m = q('#merch') || q('#merch-section'); if (!m) return;
+      var r = docRect(m), y = Math.max(scrollY + 160, r.t + 80), lx = Math.max(160, r.l - 140);
+      run(startFrom('left', y).concat(
+        [line(offL(), y, lx, y, 1000, { smoke: true, angle: 0 })],
+        loopSegs(lx, y, 70, 1, 1500),
+        rollSegs(lx, y, offR(), 1900)));
+    }
   };
 
   // Tap the plane: impromptu loop-the-loop. Parked, it hops off the card, loops, and lands back
@@ -1336,7 +1388,7 @@
   function goTo(id) { if (id === current) return; current = id; if (moves[id]) moves[id](); }
 
   function start() {
-    plane.classList.add('on'); gear(false); P.x = offR(); P.y = scrollY + 200; draw();
+    plane.classList.add('on'); gear(false); P.x = offL() - 200; P.y = -400; draw(); current = 'top';
     var ids = ['what-it-is', 'how-it-works', 'who-its-for', 'goal', 'merch-section'];
     var secs = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
     function pick() {
@@ -1349,10 +1401,8 @@
     addEventListener('resize', function () { current = null; clearTimeout(pending); pending = setTimeout(pick, 300); });
     pick();
   }
-  var began = false;
-  function begin() { if (!began) { began = true; start(); } }
-  window.addEventListener('load', function () { setTimeout(begin, 4200); });
-  setTimeout(begin, 6500);
+  // Starts right away but stays offscreen until the visitor reaches What It Is.
+  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
 })();
 </script>
 
