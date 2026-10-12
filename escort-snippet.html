@@ -1,0 +1,234 @@
+<style>
+  /* ---------- ESCORT BIPLANE (10/12/26): flies to each section as you scroll ---------- */
+  body { overflow-x: clip; }
+  #escort-layer { position: absolute; top: 0; left: 0; width: 100%; height: 0; z-index: 35; pointer-events: none; }
+  #escort { position: absolute; top: 0; left: 0; width: 64px; height: 38px; pointer-events: auto; cursor: pointer; opacity: 0; transition: opacity .4s; will-change: transform; }
+  #escort.on { opacity: 1; }
+  #escort svg { display: block; width: 100%; height: 100%; overflow: visible; }
+  #escort-bubble { position: absolute; top: 0; left: 0; max-width: 260px; padding: 7px 11px; border-radius: 6px;
+    background: #000; border: 1.5px solid rgba(53, 224, 90, .7); color: #35e05a;
+    font: 600 12px/1.35 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .02em;
+    box-shadow: 0 10px 24px -10px rgba(7,12,40,.6); opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s; white-space: normal; }
+  #escort-bubble.show { opacity: 1; transform: translateY(0); }
+  .escort-dot { position: absolute; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: #d58cff;
+    box-shadow: 0 0 6px rgba(213,140,255,.8); animation: escort-dot 3.2s ease-out forwards; }
+  @keyframes escort-dot { 0% { opacity: .95; transform: scale(1); } 70% { opacity: .6; } 100% { opacity: 0; transform: scale(.4); } }
+  .escort-smoke { position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: rgba(246,244,239,.85);
+    border: 1px solid rgba(18,23,42,.12); animation: escort-smoke 1.6s ease-out forwards; }
+  @keyframes escort-smoke { 0% { opacity: .8; transform: scale(.6); } 100% { opacity: 0; transform: scale(2.2); } }
+  @media (max-width: 640px) { #escort { width: 48px; height: 28px; } #escort-bubble { max-width: 200px; font-size: 11px; } }
+</style>
+<div id="escort-layer" aria-hidden="true">
+  <div id="escort" title="Say intentions">
+    <svg viewBox="0 0 122 72" xmlns="http://www.w3.org/2000/svg">
+      <g id="escort-gear">
+      <line x1="66" y1="46" x2="61" y2="60" stroke="#12172a" stroke-width="2.4" stroke-linecap="round"/>
+      <line x1="74" y1="46" x2="66" y2="60" stroke="#12172a" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="63" cy="62" r="6.5" fill="#12172a"/><circle cx="63" cy="62" r="2.2" fill="#f6f4ef"/>
+      </g>
+      <rect x="36" y="42" width="50" height="6" rx="3" fill="#a8231c"/>
+      <path d="M5 34 L1 15 Q11 13 17 21 L24 32 Z" fill="#d2342b"/>
+      <path d="M6 33 Q40 23 84 25 L99 27 Q106 30 106 36 Q106 43 99 45 L70 47 Q38 47 6 38 Z" fill="#d2342b"/>
+      <path d="M22 31.5 Q50 25.5 84 27" fill="none" stroke="#f6f4ef" stroke-width="2.2" stroke-linecap="round"/>
+      <ellipse cx="12" cy="35" rx="11" ry="2.6" fill="#a8231c"/>
+      <path d="M96 27 L99 27 Q106 30 106 36 Q106 43 99 45 L96 45 Z" fill="#12172a"/>
+      <line x1="46" y1="16" x2="49" y2="43" stroke="#12172a" stroke-width="2"/>
+      <line x1="78" y1="16" x2="75" y2="43" stroke="#12172a" stroke-width="2"/>
+      <line x1="58" y1="16" x2="60" y2="26" stroke="#12172a" stroke-width="1.6"/>
+      <line x1="68" y1="16" x2="67" y2="26" stroke="#12172a" stroke-width="1.6"/>
+      <circle cx="55" cy="23" r="4" fill="#12172a"/>
+      <path d="M58 26 Q59 19 65 21 L66 26 Z" fill="#12172a" opacity="0.55"/>
+      <rect x="32" y="10" width="60" height="7" rx="3.5" fill="#d2342b"/>
+      <circle cx="108" cy="36" r="3" fill="#12172a"/>
+      <ellipse class="tow-prop" cx="111" cy="36" rx="2.6" ry="24" fill="#12172a" opacity="0.3"/>
+    </svg>
+  </div>
+  <div id="escort-bubble" role="status"></div>
+</div>
+<script>
+/* Escort biplane: after the tow-banner intro, a little biplane follows you down the page.
+   Each section gets its own move: orbit the logo, loop the video, fly the four steps like an
+   RNAV approach (magenta waypoint trail), hold around the Instrument Pilots card, land on the
+   App Store badge, and barrel-roll past the merch. Tap the plane for a random ATC call. */
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var layer = document.getElementById('escort-layer');
+  var plane = document.getElementById('escort');
+  var bubble = document.getElementById('escort-bubble');
+  if (!layer || !plane || !window.requestAnimationFrame) return;
+
+  var P = { x: -80, y: 200, a: 0, roll: 1 };
+  var token = 0, bubbleTimer = null, current = null, lastDot = null;
+
+  function docRect(el) { var r = el.getBoundingClientRect(); return { l: r.left + scrollX, t: r.top + scrollY, r: r.right + scrollX, b: r.bottom + scrollY, w: r.width, h: r.height }; }
+  function q(sel) { return document.querySelector(sel); }
+  function pw() { return plane.offsetWidth; } function ph() { return plane.offsetHeight; }
+  function clampY(y) { return Math.max(scrollY + 130, Math.min(scrollY + innerHeight - 70, y)); }
+  function clampX(x) { var W = document.documentElement.clientWidth; return Math.max(pw() / 2 + 6, Math.min(W - pw() / 2 - 6, x)); }
+
+  function draw(freeRotate) {
+    var a = P.a, flip = 1;
+    if (!freeRotate && Math.cos(a) < 0) flip = -1;              // keep the plane upright when flying left
+    plane.style.transform = 'translate(' + (P.x - pw() / 2) + 'px,' + (P.y - ph() / 2) + 'px) rotate(' + a + 'rad) scaleY(' + (flip * P.roll) + ')';
+    if (bubble.classList.contains('show')) placeBubble();
+  }
+  function placeBubble() {
+    var W = document.documentElement.clientWidth, bw = bubble.offsetWidth;
+    var bx = Math.max(8, Math.min(W - bw - 8, P.x - bw / 2));
+    bubble.style.left = bx + 'px'; bubble.style.top = (P.y - ph() / 2 - bubble.offsetHeight - 10) + 'px';
+  }
+  function say(text, ms) {
+    clearTimeout(bubbleTimer);
+    bubble.textContent = text; bubble.classList.add('show'); placeBubble();
+    bubbleTimer = setTimeout(function () { bubble.classList.remove('show'); }, ms || 3800);
+  }
+
+  // Run a list of segments: {dur, f(t)->[x,y], free (no upright flip), roll(t)->scaleY, trail, smoke, ease}
+  function run(segs, done) {
+    var my = ++token, i = 0, t0 = null;
+    function step(now) {
+      if (my !== token) return;
+      var s = segs[i]; if (!s) { if (done) done(); return; }
+      if (t0 === null) t0 = now;
+      var t = Math.min(1, (now - t0) / s.dur), e = s.ease ? s.ease(t) : t;
+      var p = s.f(e), dx = p[0] - P.x, dy = p[1] - P.y;
+      if (dx * dx + dy * dy > 0.5) P.a = Math.atan2(dy, dx);
+      if (s.angle !== undefined) P.a = s.angle;
+      P.x = p[0]; P.y = p[1]; P.roll = s.roll ? s.roll(t) : 1;
+      if (s.trail) dropDot();
+      if (s.smoke && Math.random() < 0.35) puff();
+      draw(s.free);
+      if (t >= 1) { i++; t0 = null; }
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function dropDot() {
+    if (lastDot && Math.hypot(P.x - lastDot[0], P.y - lastDot[1]) < 16) return;
+    lastDot = [P.x, P.y];
+    var d = document.createElement('span'); d.className = 'escort-dot'; d.style.left = P.x + 'px'; d.style.top = P.y + 'px';
+    layer.appendChild(d); setTimeout(function () { d.remove(); }, 3300);
+  }
+  function puff() {
+    var d = document.createElement('span'); d.className = 'escort-smoke';
+    d.style.left = (P.x - Math.cos(P.a) * pw() / 2) + 'px'; d.style.top = (P.y - Math.sin(P.a) * pw() / 2) + 'px';
+    layer.appendChild(d); setTimeout(function () { d.remove(); }, 1700);
+  }
+  var ease = function (t) { return t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; };
+  var easeOut = function (t) { return 1 - Math.pow(1 - t, 3); };
+
+  // Curved transit from wherever the plane is to (x, y)
+  function transit(x, y, extra) {
+    var x0 = P.x, y0 = P.y, dist = Math.hypot(x - x0, y - y0);
+    var bow = Math.min(160, dist * 0.25), mx = (x0 + x) / 2, my = (y0 + y) / 2 - bow;
+    var seg = { dur: Math.max(650, Math.min(2200, dist / 0.75)), ease: ease,
+      f: function (t) { var u = 1 - t; return [u * u * x0 + 2 * u * t * mx + t * t * x, u * u * y0 + 2 * u * t * my + t * t * y]; } };
+    for (var k in extra || {}) seg[k] = extra[k];
+    return seg;
+  }
+  function line(x0, y0, x1, y1, dur, extra) {
+    var s = { dur: dur, f: function (t) { return [x0 + (x1 - x0) * t, y0 + (y1 - y0) * t]; } };
+    for (var k in extra || {}) s[k] = extra[k]; return s;
+  }
+  function gear(down) { var g = document.getElementById('escort-gear'); if (g) g.style.opacity = down ? 1 : 0; }
+
+  // ---------- Section moves ----------
+  var moves = {
+    top: function () {
+      var b = q('.hero-badge'); if (!b) return;
+      var r = docRect(b), cx = r.l + r.w / 2, cy = r.t + r.h / 2, R = r.w / 2 + 34;
+      var a0 = -Math.PI * 0.75;
+      gear(false);
+      run([transit(cx + R * Math.cos(a0), cy + R * Math.sin(a0)),
+        { dur: 4200, free: true, f: function (t) { var a = a0 + t * Math.PI * 2; return [cx + R * Math.cos(a), cy + R * Math.sin(a)]; } }]);
+      say('ATC: ChairFly, radar contact. Welcome aboard.');
+    },
+    'what-it-is': function () {
+      var v = q('#what-it-is .tier-grid') || q('#what-it-is h2'); if (!v) return;
+      var r = docRect(v), x = clampX(r.l + r.w * 0.5), y = clampY(r.t - 30), R = 70;
+      var cx = x, cy = y - R;
+      gear(false);
+      run([transit(x - 140, y),
+        line(x - 140, y, x, y, 450),
+        { dur: 1600, free: true, smoke: true, f: function (t) { var a = t * Math.PI * 2; return [cx + R * Math.sin(a), cy + R * Math.cos(a)]; } },
+        line(x, y, clampX(x + 220), y, 700, { ease: easeOut, angle: 0 })]);
+      say('ATC: ChairFly, proceed direct What It Is.');
+    },
+    'how-it-works': function () {
+      var nums = document.querySelectorAll('#how-it-works .step .num'); if (!nums.length) return;
+      var pts = [].map.call(nums, function (n) { var r = docRect(n); return [r.l + r.w + 26, r.t + r.h / 2]; });
+      var segs = [transit(pts[0][0] - 120, pts[0][1] - 40), line(pts[0][0] - 120, pts[0][1] - 40, pts[0][0], pts[0][1], 500, { trail: true })];
+      for (var i = 1; i < pts.length; i++) {
+        (function (a, b) {
+          var mx = (a[0] + b[0]) / 2, my = Math.min(a[1], b[1]) - 30;
+          segs.push({ dur: 900, trail: true, f: function (t) { var u = 1 - t; return [u * u * a[0] + 2 * u * t * mx + t * t * b[0], u * u * a[1] + 2 * u * t * my + t * t * b[1]]; } });
+        })(pts[i - 1], pts[i]);
+      }
+      gear(false); run(segs);
+      say('ATC: Cleared RNAV approach, steps 01 through 04.');
+    },
+    'who-its-for': function () {
+      var c = q('#who-its-for .audience-card.emphasis'); if (!c) return;
+      var r = docRect(c), pad = 22, R = r.h / 2 + pad, cy = r.t + r.h / 2;
+      var x1 = r.l + R * 0.6, x2 = r.r - R * 0.6; if (x2 < x1) x2 = x1;
+      var L = x2 - x1, arc = Math.PI * R, total = 2 * L + 2 * arc;
+      function race(s) {                          // s: 0..total along the stadium, clockwise from top-left
+        if (s < L) return [x1 + s, cy - R]; s -= L;
+        if (s < arc) { var a = -Math.PI / 2 + s / R; return [x2 + R * Math.cos(a), cy + R * Math.sin(a)]; } s -= arc;
+        if (s < L) return [x2 - s, cy + R]; s -= L;
+        var b = Math.PI / 2 + s / R; return [x1 + R * Math.cos(b), cy + R * Math.sin(b)];
+      }
+      gear(false);
+      run([transit(x1, cy - R), { dur: 5200, free: true, f: function (t) { return race(t * total); } }]);
+      say('ATC: Hold as published at Instrument Pilots. Expect further clearance.', 4600);
+    },
+    goal: function () {
+      var b = q('#goal .app-store-badge') || q('#goal .qr-card'); if (!b) return;
+      var r = docRect(b), ty = r.t - ph() / 2 + 2, tx = r.l + r.w * 0.55;
+      gear(false);
+      run([transit(tx - 300, ty - 130),
+        line(tx - 300, ty - 130, tx - 50, ty, 1400, { ease: function (t) { if (t > .6) gear(true); return t; } }),
+        line(tx - 50, ty, tx + 10, ty, 900, { ease: easeOut, angle: 0 })], function () { gear(true); });
+      say('ATC: ChairFly, cleared to land. Grab your iPad.', 4600);
+    },
+    merch: function () {
+      var m = q('#merch') || q('#merch-section'); if (!m) return;
+      var hd = docRect(q('#merch-section .section-head') || m), r = docRect(m), y = clampY(hd.b + 50), x0 = clampX(hd.l + 20), x1 = clampX(r.l - 40);
+      gear(false);
+      run([transit(x0, y), line(x0, y, x1, y, 1800, { angle: 0, smoke: true, roll: function (t) { return Math.cos(t * Math.PI * 4); } })]);
+      say('ATC: Merch is on the way. Say intentions.');
+    }
+  };
+
+  var quips = ['ATC: ChairFly, say intentions.', 'ATC: Traffic, twelve o\'clock. It\'s you.', 'ATC: Roger, wilco.',
+    'ATC: ChairFly, squawk 1200.', 'ATC: Check your scan.', 'ATC: Readback correct.'];
+  plane.addEventListener('click', function () {
+    var x = P.x, y = P.y;
+    run([{ dur: 900, free: false, angle: P.a, roll: function (t) { return Math.cos(t * Math.PI * 2); }, f: function () { return [x, y]; } }]);
+    say(quips[Math.floor(Math.random() * quips.length)], 2600);
+  });
+
+  function goTo(id) { if (id === current) return; current = id; if (moves[id]) moves[id](); }
+
+  function start() {
+    plane.classList.add('on');
+    var hero = q('.hero'); P.y = hero ? docRect(hero).t + 120 : 200; P.x = -60; draw();
+    var ids = ['what-it-is', 'how-it-works', 'who-its-for', 'goal', 'merch-section'];
+    var secs = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    function pick() {
+      var mid = innerHeight * 0.5, found = 'top';
+      secs.forEach(function (s) { var r = s.getBoundingClientRect(); if (r.top < mid && r.bottom > mid) found = s.id === 'merch-section' ? 'merch' : s.id; });
+      goTo(found);
+    }
+    var pending = null;
+    addEventListener('scroll', function () { clearTimeout(pending); pending = setTimeout(pick, 160); }, { passive: true });
+    addEventListener('resize', function () { current = null; clearTimeout(pending); pending = setTimeout(pick, 250); });
+    pick();
+  }
+  // Wait for the tow-banner plane to clear the top strip before the escort shows up.
+  var began = false;
+  function begin() { if (!began) { began = true; start(); } }
+  window.addEventListener('load', function () { setTimeout(begin, 4200); });
+  setTimeout(begin, 6500);
+})();
+</script>
