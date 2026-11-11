@@ -945,7 +945,7 @@
           <div><strong>iPad exclusive</strong>Built for the panel in your hands</div>
         </div>
         <div class="phone-strip" id="phone-strip">
-          <p><strong>On your phone?</strong> ChairFly is iPad exclusive. Email yourself the App Store link so it's waiting when you pick up your iPad.</p>
+          <p><strong>On your phone?</strong> ChairFly is iPad exclusive. We'll email you the App Store link so it's waiting when you pick up your iPad.</p>
           <button type="button" class="btn btn-amber js-open-sheet">Email me the link</button>
         </div>
       </div>
@@ -1165,14 +1165,14 @@
       <p class="eyebrow">iPad Exclusive</p>
       <h3 id="sheet-title">ChairFly lives on your iPad.</h3>
     </div>
-    <p class="sheet-sub">Looks like you're on a phone. Enter your email and your mail app will open with the App Store link ready to send to yourself. Hit send, then open it on your iPad.</p>
+    <p class="sheet-sub">Looks like you're on a phone. Drop your email and we'll send you the App Store link, so it's waiting when you pick up your iPad.</p>
     <form id="ipad-link-form" name="ipad-link" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="ipad-link" />
       <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
       <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" autocomplete="email" />
       <button type="submit" class="btn btn-amber">Email me the link</button>
     </form>
-    <p class="sheet-confirm" id="sheet-confirm">Your mail app should be open with the link. Hit send, then open it on your iPad.</p>
+    <p class="sheet-confirm" id="sheet-confirm">Got it. The App Store link will be in your inbox in a minute or two.</p>
     <a class="sheet-alt" id="sheet-alt" href="https://apps.apple.com/app/chairfly/id6805243067">Open the App Store anyway &rarr;</a>
   </div>
 </div>
@@ -1210,15 +1210,14 @@
   document.getElementById('ipad-link-form').addEventListener('submit', function (e) {
     e.preventDefault();
     var form = this;
-    var email = form.email.value.trim();
-    var body = new URLSearchParams(new FormData(form)).toString();
-    try { fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body }).catch(function () {}); } catch (err) {}
-    var APP = 'https://apps.apple.com/app/chairfly/id6805243067';
-    var subject = encodeURIComponent('ChairFly for my iPad');
-    var msg = encodeURIComponent('Open this on your iPad to get ChairFly:\n' + APP + '\n\nchairflytrainer.com');
-    sheet.classList.add('sent');
-    form.reset();
-    window.location.href = 'mailto:' + email.replace(/[?&#\s]/g, '') + '?subject=' + subject + '&body=' + msg;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).finally(function () {
+      sheet.classList.add('sent');
+      form.reset();
+    });
   });
 })();
 </script>
