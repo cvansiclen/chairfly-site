@@ -69,7 +69,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--amber-dim);
+    color: var(--amber);
     display: flex;
     align-items: center;
     gap: 0.6em;
@@ -651,104 +651,125 @@
     white-space: nowrap;
   }
 
-  /* ---------- MERCH RAIL ---------- */
-  .merch-rail {
-    position: sticky;
-    top: 92px;
-    background: var(--navy-900);
-    color: var(--paper);
-    border-radius: 14px;
-    padding: 22px 20px 24px;
-    box-shadow: var(--shadow);
-    background-image: repeating-linear-gradient(135deg, rgba(246,244,239,0.035) 0 2px, transparent 2px 10px);
-  }
-  .merch-rail .eyebrow { color: var(--amber); margin-bottom: 6px; }
-  .merch-rail h3 {
-    font-size: 1.4rem;
-    color: var(--paper);
-    margin-bottom: 4px;
-  }
-  .merch-rail .sub {
-    font-size: 0.84rem;
-    color: rgba(246,244,239,0.65);
-    margin-top: 8px;
-  }
-  .merch-list {
-    list-style: none;
-    margin: 20px 0 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--hairline-dark);
-    border-top: 1px solid var(--hairline-dark);
-    border-bottom: 1px solid var(--hairline-dark);
-  }
-  .merch-item {
-    background: var(--navy-900);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 4px;
-    gap: 10px;
-  }
-  .merch-item .name {
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-  .merch-item .name small {
-    display: block;
+  /* ---------- IPAD EXCLUSIVE LABELS ---------- */
+  .badge-stack { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; }
+  .nav-badge { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .ipad-tag {
     font-family: "IBM Plex Mono", monospace;
-    font-size: 0.68rem;
-    color: rgba(246,244,239,0.5);
-    margin-top: 2px;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .merch-item .price {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.82rem;
     color: var(--amber);
-    font-variant-numeric: tabular-nums;
     white-space: nowrap;
   }
-  .merch-form {
-    margin-top: 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .merch-form input[type="email"] {
-    width: 100%;
-    padding: 11px 12px;
-    border-radius: 6px;
-    border: 1px solid var(--hairline-dark);
-    background: rgba(246,244,239,0.06);
-    color: var(--paper);
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 0.88rem;
-  }
-  .merch-form input::placeholder { color: rgba(246,244,239,0.4); }
-  .merch-form input:focus-visible, .btn:focus-visible, nav.links a:focus-visible {
-    outline: 2px solid var(--amber);
-    outline-offset: 2px;
-  }
-  .merch-form button {
-    width: 100%;
-  }
-  .merch-note {
-    margin-top: 12px;
-    font-size: 0.74rem;
-    color: rgba(246,244,239,0.5);
-  }
-  .merch-confirm {
+  .ipad-tag-nav { font-size: 0.56rem; letter-spacing: 0.12em; }
+  .ipad-tag-light { color: var(--amber-dim); margin-top: 8px; }
+
+  /* ---------- PHONE STRIP (shown on phones only) ---------- */
+  .phone-strip {
     display: none;
-    margin-top: 14px;
-    font-size: 0.84rem;
-    color: var(--amber);
-    font-family: "IBM Plex Mono", monospace;
+    margin-top: 26px;
+    padding: 16px 18px;
+    border: 1px solid rgba(232,163,61,0.45);
+    border-radius: var(--radius);
+    background: rgba(232,163,61,0.08);
+    gap: 14px;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .merch-confirm.show { display: block; }
+  .phone-strip p { font-size: 0.95rem; color: rgba(246,244,239,0.88); }
+  .phone-strip strong { color: var(--amber); }
+  .is-phone .phone-strip { display: flex; }
+
+  /* ---------- EMAIL-ME-THE-LINK SHEET ---------- */
+  .sheet-backdrop {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(7,12,40,0.6);
+    display: none; align-items: flex-end; justify-content: center;
+  }
+  .sheet-backdrop.open { display: flex; }
+  .sheet {
+    width: 100%; max-width: 520px;
+    background: var(--navy-900); color: var(--paper);
+    border-radius: 18px 18px 0 0;
+    padding: 26px 22px calc(26px + env(safe-area-inset-bottom));
+    box-shadow: 0 -20px 50px rgba(0,0,0,0.4);
+    animation: sheet-up 0.25s ease-out;
+  }
+  @keyframes sheet-up { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .sheet .eyebrow { color: var(--amber); }
+  .sheet h3 { margin-top: 10px; font-size: 1.9rem; color: var(--paper); }
+  .sheet p.sheet-sub { margin-top: 10px; color: rgba(246,244,239,0.75); font-size: 0.95rem; }
+  .sheet form { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .sheet input[type="email"] {
+    width: 100%; padding: 13px 14px; border-radius: 8px;
+    border: 1px solid var(--hairline-dark); background: rgba(246,244,239,0.07);
+    color: var(--paper); font-family: "IBM Plex Sans", sans-serif; font-size: 1rem;
+  }
+  .sheet input::placeholder { color: rgba(246,244,239,0.4); }
+  .sheet .btn { width: 100%; padding: 14px 22px; }
+  .sheet-alt { display: block; margin-top: 14px; text-align: center; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(246,244,239,0.55); }
+  .sheet-close { position: absolute; right: 0; top: 0; background: none; border: 0; color: rgba(246,244,239,0.6); font-size: 1.6rem; cursor: pointer; padding: 6px 10px; }
+  .sheet-head { position: relative; }
+  .sheet-confirm { display: none; margin-top: 16px; font-family: "IBM Plex Mono", monospace; font-size: 0.85rem; color: var(--amber); }
+  .sheet.sent form { display: none; }
+  .sheet.sent .sheet-confirm { display: block; }
+  .sheet input:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  section { scroll-margin-top: 70px; }
+  nav.links a.nav-lesson { color: var(--amber); }
+  .soon-link { color: rgba(246,244,239,0.45); white-space: nowrap; cursor: default; }
+  .soon-link em { font-style: normal; font-size: 0.6rem; letter-spacing: 0.1em; color: var(--navy-950); background: var(--amber); padding: 2px 6px; border-radius: 99px; margin-left: 4px; vertical-align: 1px; }
+  .soon-pill { display: inline-flex; align-items: center; font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy-900); border: 1px dashed var(--amber-dim); background: rgba(232,163,61,0.12); padding: 12px 20px; border-radius: 6px; }
+  .soon-foot { color: rgba(246,244,239,0.35); }
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials { background: var(--navy-900); color: var(--paper); }
+  .testimonials .eyebrow { color: var(--amber); }
+  .testimonials .section-head h2 { color: var(--paper); }
+  .t-viewport { overflow: hidden; position: relative; }
+  .t-track { display: flex; transition: transform 0.7s cubic-bezier(.4,.1,.2,1); }
+  .t-slide { flex: 0 0 100%; padding-right: 2px; }
+  .t-card {
+    max-width: 780px;
+    border-left: 3px solid var(--amber);
+    padding: 6px 0 6px clamp(18px, 3vw, 32px);
+  }
+  .t-quote {
+    font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+    line-height: 1.45;
+    color: var(--paper);
+  }
+  .t-quote + .t-quote { margin-top: 14px; }
+  .t-quote b { color: var(--amber); font-weight: 600; }
+  .t-name {
+    margin-top: 22px;
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 700; font-size: 1.35rem; letter-spacing: 0.02em;
+  }
+  .t-title { font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; letter-spacing: 0.06em; color: rgba(246,244,239,0.55); margin-top: 2px; }
+  .t-dots { display: flex; gap: 10px; margin-top: 30px; }
+  .t-dot { width: 28px; height: 4px; border-radius: 4px; border: 0; padding: 0; background: rgba(246,244,239,0.2); cursor: pointer; }
+  .t-dot.on { background: var(--amber); }
+
+  /* ---------- INSTRUCTOR TEASER ---------- */
+  .instructors-teaser { background: var(--paper-dim); }
+  .it-grid { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 860px; gap: clamp(30px, 5vw, 60px); align-items: center; }
+  .it-line {
+    margin-top: 14px;
+    font-family: "Big Shoulders Display", sans-serif; font-weight: 700;
+    font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.08; color: var(--navy-900);
+  }
+  .it-line span { color: var(--amber-dim); }
+  .it-copy { margin-top: 18px; color: var(--ink-soft); max-width: 56ch; }
+  .it-ctas { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .it-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1px; background: var(--hairline); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .it-list li { background: #fff; padding: 16px 18px; display: flex; gap: 14px; align-items: baseline; }
+  .it-list .n { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; color: var(--amber-dim); font-weight: 600; }
+  .it-list b { display: block; color: var(--navy-900); }
+  .it-list small { color: var(--ink-soft); font-size: 0.86rem; }
+  .btn-navy { background: var(--navy-900); color: var(--paper); font-weight: 600; }
+  .btn-navy:hover { background: var(--navy-700); }
+  @media (max-width: 900px) { .it-grid { grid-template-columns: 1fr; } }
 
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; }
@@ -759,7 +780,6 @@
     .audience-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .steps { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .layout-with-rail { grid-template-columns: 1fr; }
-    .merch-rail { position: static; }
     .goal { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
@@ -794,6 +814,9 @@
     text-transform: uppercase;
     letter-spacing: 0.02em;
   }
+  .footer-social { display: inline-flex; align-items: center; gap: 8px; color: var(--paper); text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; letter-spacing: 0.03em; padding: 7px 14px; border: 1px solid rgba(246,244,239,0.18); border-radius: 99px; transition: border-color 0.15s ease, color 0.15s ease; }
+  .footer-social .fs-label { color: rgba(246,244,239,0.6); }
+  .footer-social:hover, .footer-social:focus-visible { color: var(--amber); border-color: var(--amber); }
   .footer-legal {
     display: flex;
     align-items: center;
@@ -849,12 +872,13 @@
     </a>
     <nav class="links">
       <a href="#what-it-is">What It Is</a>
-      <a href="#how-it-works">How It Works</a>
       <a href="#who-its-for">Who It's For</a>
+      <a href="#instructors">Instructors</a>
+      <a href="#how-it-works">How It Works</a>
       <a href="#goal">Our Goal</a>
-      <a href="#merch">Merch</a>
+      <a href="/lessons.html" class="nav-lesson">Lesson Plan</a>
     </nav>
-    <a href="https://apps.apple.com/app/chairfly/id6805243067" class="btn-nav" style="display:inline-flex;align-items:center;" aria-label="Download on the App Store"><img src="app-store-badge.svg" alt="Download on the App Store" style="display:block;width:135px;height:auto;"></a>
+    <div class="nav-badge"><a href="https://apps.apple.com/app/chairfly/id6805243067" class="btn-nav js-appstore" style="display:inline-flex;align-items:center;padding:0;" aria-label="Download on the App Store"><img src="app-store-badge.svg" alt="Download on the App Store" style="display:block;width:120px;height:auto;"></a><span class="ipad-tag ipad-tag-nav">iPad exclusive</span></div>
   </div>
 </header>
 
@@ -872,13 +896,17 @@
         <h1>ChairFly your <em>next flight</em> &mdash; anywhere there's a seat.</h1>
         <p class="hero-sub">ChairFly turns your iPad into a cross-check trainer for pilots who believe the learning never really stops: tilt to fly attitude and heading, work VOR holds and VOR, ILS, and RNAV approaches, and drill the scan until it's automatic &mdash; no sim schedule, no facility fee, no hangar required.</p>
         <div class="hero-ctas">
-          <a href="https://apps.apple.com/app/chairfly/id6805243067" class="btn-amber-badge" style="display:inline-flex;align-items:center;" aria-label="Download on the App Store"><img src="app-store-badge.svg" alt="Download on the App Store" style="display:block;width:180px;height:auto;"></a>
+          <div class="badge-stack"><a href="https://apps.apple.com/app/chairfly/id6805243067" class="btn-amber-badge js-appstore" style="display:inline-flex;align-items:center;" aria-label="Download on the App Store"><img src="app-store-badge.svg" alt="Download on the App Store" style="display:block;width:180px;height:auto;"></a><span class="ipad-tag">iPad exclusive</span></div>
           <a class="btn btn-ghost-dark" href="#how-it-works">See How It Works</a>
         </div>
         <div class="hero-meta">
           <div><strong>Free</strong>6-Pack cross-check</div>
           <div><strong>$6.99/mo</strong>Glass Cockpit unlock</div>
-          <div><strong>iPad</strong>Built for the panel in your hands</div>
+          <div><strong>iPad exclusive</strong>Built for the panel in your hands</div>
+        </div>
+        <div class="phone-strip" id="phone-strip">
+          <p><strong>On your phone?</strong> ChairFly is iPad exclusive. We'll email you the App Store link so it's waiting when you pick up your iPad.</p>
+          <button type="button" class="btn btn-amber js-open-sheet">Email me the link</button>
         </div>
       </div>
       <div class="hero-badge-wrap">
@@ -937,37 +965,33 @@
     </div>
   </section>
 
-  <section id="how-it-works" class="how-it-works">
+  <section id="testimonials" class="testimonials">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">How It Works</p>
-        <h2>Four steps to a sharper scan.</h2>
-        <p>No setup, no sim reservation &mdash; just the panel and a scenario.</p>
+        <p class="eyebrow">From the Instructor's Seat</p>
+        <h2>What CFIIs are saying.</h2>
       </div>
-      <div class="steps">
-        <div class="step">
-          <span class="num">01</span>
-          <h3>Pick your panel</h3>
-          <p>Start on the free 6-Pack, or unlock the Glass Cockpit for a full electronic glass panel.</p>
-        </div>
-        <div class="step">
-          <span class="num">02</span>
-          <h3>Fly by feel</h3>
-          <p>Tilt the iPad to control attitude and heading, and run the throttle lever with your hand.</p>
-        </div>
-        <div class="step">
-          <span class="num">03</span>
-          <h3>Run the approach</h3>
-          <p>Fly VOR holds and VOR, ILS, and RNAV approaches while ATC vectors you and clears you in, just like on frequency.</p>
-          <p class="step-badge">Glass Cockpit Unlock</p>
-        </div>
-        <div class="step">
-          <span class="num">04</span>
-          <h3>Check your work</h3>
-          <p>Stabilize it down to minimums and you'll know &mdash; land it clean, level off at the MDA, or go missed and climb back out.</p>
-          <p class="step-badge">Glass Cockpit Unlock</p>
+      <div class="t-viewport" id="t-viewport">
+        <div class="t-track" id="t-track">
+          <div class="t-slide">
+            <div class="t-card">
+              <p class="t-quote">&ldquo;As a CFII, I use ChairFly with <b>all of my students</b> outside the classroom, from IFR students to even my VFR students.</p>
+              <p class="t-quote">It teaches the primacy of having <b>full faith in your instruments</b> and understanding safety when faced with an unusual attitude.&rdquo;</p>
+              <p class="t-name">&ndash; Nate Monroe, CFII</p>
+              <p class="t-title">@natemonroe2001</p>
+            </div>
+          </div>
+          <div class="t-slide">
+            <div class="t-card">
+              <p class="t-quote">&ldquo;As a commercial pilot, CFI, and CFII, I know firsthand how important having <b>the right resources</b> is when it comes to flight training.</p>
+              <p class="t-quote">I really like how this app <b>incorporates the Instrument ACS</b>, making it easier for pilots to stay on track with their training and feel confident going into their checkrides.&rdquo;</p>
+              <p class="t-name">&ndash; Caiden Nelson, CFII</p>
+              <p class="t-title">@pilot_pj</p>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="t-dots" id="t-dots" role="tablist" aria-label="Testimonials"></div>
     </div>
   </section>
 
@@ -1013,6 +1037,54 @@
     </div>
   </section>
 
+  <section id="instructors" class="instructors-teaser">
+    <div class="wrap it-grid">
+      <div>
+        <p class="eyebrow">For Instructors</p>
+        <p class="it-line">&ldquo;I made ChairFly for students, but it's really starting to feel like <span>ChairFly is made for instructors.</span>&rdquo;</p>
+        <p class="it-copy">Instructors are already using ChairFly between lessons, on weather days, and to brief approaches before anyone straps in. So we built a 30-lesson ChairFly Lesson Plan, mapped to the Instrument ACS: five lessons on the 6-Pack, twenty-five on the Glass Cockpit, each with a goal, a drill, and a standard to hit. Assign it by number.</p>
+        <div class="it-ctas">
+          <a class="btn btn-navy" href="/lessons.html">Open the Lesson Plan</a>
+          <a class="btn btn-outline" href="/lessons.html#instructors">How instructors use it</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="how-it-works">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How It Works</p>
+        <h2>Four steps to a sharper scan.</h2>
+        <p>No setup, no sim reservation &mdash; just the panel and a scenario.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>Pick your panel</h3>
+          <p>Start on the free 6-Pack, or unlock the Glass Cockpit for a full electronic glass panel.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>Fly by feel</h3>
+          <p>Tilt the iPad to control attitude and heading, and run the throttle lever with your hand.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>Run the approach</h3>
+          <p>Fly VOR holds and VOR, ILS, and RNAV approaches while ATC vectors you and clears you in, just like on frequency.</p>
+          <p class="step-badge">Glass Cockpit Unlock</p>
+        </div>
+        <div class="step">
+          <span class="num">04</span>
+          <h3>Check your work</h3>
+          <p>Stabilize it down to minimums and you'll know &mdash; land it clean, level off at the MDA, or go missed and climb back out.</p>
+          <p class="step-badge">Glass Cockpit Unlock</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="goal">
     <div class="wrap goal">
       <div>
@@ -1024,60 +1096,14 @@
         <p class="qr-label">&mdash; Get ChairFly &mdash;</p>
         <div class="qr-shot"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAuQAAALkAQAAAABv3x3IAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOjA3MmRjNjQwLWM5NzEtNDMzYy04ODkxLTA5N2U3NWIzNzc1YgAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNou6USEydgaunY9kYBf3SyTwAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6Njc0NzYzMjItZjEzMS00NGVmLTg1MTctZDY3NGMxZGY0MTVkbHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaL4WrNnG4KvkD6Js1C7wHBEAAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYINsnLCuqQ0lZV2l0+qXwD45KnmYihKis+eTDK2zy7+ospGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2ixlqH8bFjBzQoIZDIZ1PiOAAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFgggPTi1UjC88Z6rVu3LF3p52tqDPYWZMwDtVZVvZJ+jcZkbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYTowNzJkYzY0MC1jOTcxLTQzM2MtODg5MS0wOTdlNzViMzc3NWIvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDpjNzc3MTEzMy03MjY5LTRmMGEtYTZjMy02NjhlMGZlZGI3ZTFyY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg2ycsK6pDSVlXaXT6pfAPjkqeZiKEqKz55MMrbPLv6iyiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYINPAk/W4WSEAf3ZftuCyfdUUgLsD+XhnzmPmVciY/r8romN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIOJi0XotMFx2vfRhgmKFwud9VIQC5eiAZnGglOAkvcSodGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2WEAEf8FfBOv5egWdlr6xJMFHQNHUT9gQuOVesDXInvRsEbA1z01ndV6f/RBJAQrJ/g3y/ccmDo9EuR2kPN3CHzQUqzgCDgAABAVJREFUeJzt3c12pCAQhuGPOdnrHcz93x1eAbMQpAowiSY5E9q3Ft22ts+CTR3+ipD0c7H9+UFcQkdHR0dHR0dHR0dHR39dXSml1PdZl5SaB6P/pRTfBeLMLYOOjo6Ojn5fL4nUZskthHwjSiGEEGwiXfJHCOsZ8BItg46Ojo6O/vl4q5dh/1pi+bmkck9S0ra6/22hPDgBNHfLoKOjo6Ojf6++hVD7oSH8zR8pRamM9N7Xvx7o6Ojo6Oi/TX9759kSlbulS1TSFvYPaUmq/dVgO6hNzNwy6Ojo6Ojo18Pk1W7x0Rbae2FPqcpjvum4GgNTtww6Ojo6Ovp9fQsm8r0lD/xKkuzVejxdD2gEvETLoKOjo6Ojfz72/uppcYhknpbua/5w65ZOgJlbBh0dHR0d/UbYXTM16v5VtzzJLllym21G77J/FR0dHR39cbrsplOTEY8cKqlLpE2UezXrUhcCHR0dHf2ZettftblRNus2SdM+jQOF/io6Ojo6+hN1lzndwG830tv3Zke5lv4qOjo6OvqD9X3dUt01k38ux4+6PKmsW8pP64d7N9ntOTO3DDo6Ojo6+vVo60LUxb61cKGknHpHu1btu7XU4V4rYuaWQUdHR0dHvxF5uFd+aFeDVUj9EHB9t6OYX0VHR0dHf6LucmOTQ9PpvOnxbjyc+sAk4ZlbBh0dHR0d/Xq4cWAzgxrbOVc7QCy5mdZtbctEMA6Mjo6Ojv5M3e2Vif7eaHnwCZCvosR6YHR0dHT0B+tmPXBditQfpDour5/7tc2JrawHRkdHR0d/vO5mVbtzVZej+yqpltfvZlrLia2lIP8rtAw6Ojo6Ovrno627X7qgdsjXdkv3M1lX1d5sMzjsyvDP3DLo6Ojo6Og3oimrNN5sI7+xZnmnS+v+MnPLoKOjo6OjX4+2LoSkY6L0pOearzQ6CX3dv+mvoqOjo6M/Uzd5tdZRSv5jdM9WY9r32azSkY5LzNwy6Ojo6OjoN6Ip/9CcZ9McDFcHg7uqEeXPbvXTzC2Djo6Ojo5+I9JZjA+LK6uFm/NsujTL/Co6Ojo6+hN1s3/VxhLdwTRu3rTMvia349VtdmV+FR0dHR39mXqZX+1rQOSk6Q61kXQkzS18cE9ztww6Ojo6OvqX9FzsYbWPQ1h9eX13L4/+bvlNSfkedSHQ0dHR0Z+pD/fZdFHGfMM+QCy1G3Dsmaymhztzy6Cjo6Ojo1+PD/JqnV+1JZmkcoBNs521bLYpMXPLoKOjo6OjX492/6r9ua1H9cL8rKsLYWrsy3RpS8zcMujo6Ojo6Dei1tO3sdjahvaeuoqGzVFy7mrmlkFHR0dHR78eYXim6jfFNnPLoKOjo6Ojo6Ojo6Ojo/9P/R/OdVGVTqH+eAAAAABJRU5ErkJggg==" alt="QR code linking to ChairFly on the App Store" /></div>
         <p class="qr-caption">Scan to open ChairFly on the App Store</p>
-        <a class="app-store-badge" href="https://apps.apple.com/app/chairfly/id6805243067" aria-label="Download on the App Store">
+        <a class="app-store-badge js-appstore" href="https://apps.apple.com/app/chairfly/id6805243067" aria-label="Download on the App Store">
           <img src="app-store-badge.svg" alt="Download on the App Store" style="display:block;width:180px;height:auto;">
         </a>
-        
+        <span class="ipad-tag ipad-tag-light">iPad exclusive</span>
       </div>
     </div>
   </section>
 
-  <section id="merch-section" style="padding-top:0;">
-    <div class="wrap layout-with-rail">
-      <div>
-        <div class="section-head" style="margin-bottom:0;">
-          <p class="eyebrow">Also</p>
-          <h2>Hey, we've got merch too.</h2>
-          <p>Nothing official yet &mdash; just some ChairFly gear we're putting together on the side. Tees and hoodies to start, worth actually wearing on the ramp.</p>
-        </div>
-      </div>
-      <aside class="merch-rail" id="merch">
-        <p class="eyebrow">Flight Line Merch</p>
-        <h3>On the way</h3>
-        <p class="sub">A small first run &mdash; tees, hoodies, and a few odds and ends.</p>
-        <ul class="merch-list">
-          <li class="merch-item">
-            <div class="name">Cross-Check Tee<small>Unisex, screen print</small></div>
-            <span class="price">TBD</span>
-          </li>
-          <li class="merch-item">
-            <div class="name">ChairFly Hoodie<small>Heavyweight fleece</small></div>
-            <span class="price">TBD</span>
-          </li>
-          <li class="merch-item">
-            <div class="name">Flight Path Cap<small>Embroidered</small></div>
-            <span class="price">TBD</span>
-          </li>
-          <li class="merch-item">
-            <div class="name">Panel Mug<small>Ceramic, 12oz</small></div>
-            <span class="price">TBD</span>
-          </li>
-          <li class="merch-item">
-            <div class="name">Coozie<small>Because ramp checks are thirsty work</small></div>
-            <span class="price">TBD</span>
-          </li>
-        </ul>
-        <form class="merch-form" id="merch-form" name="merch-notify" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="merch-notify" />
-          <p class="hidden-field" style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
-          <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
-          <button type="submit" class="btn btn-amber">Notify Me</button>
-        </form>
-        <p class="merch-confirm" id="merch-confirm">Got it &mdash; we'll let you know when the merch line is live.</p>
-        <p class="merch-note">No spam. Just a heads-up at launch.</p>
-      </aside>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -1087,7 +1113,10 @@
       <span>ChairFly</span>
     </div>
     <div>Built by pilots, for pilots who never stop training.</div>
+    <a class="footer-social" href="https://www.instagram.com/chairflytrainer/" target="_blank" rel="noopener" aria-label="ChairFly on Instagram (@chairflytrainer)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span><span class="fs-label">Follow us</span> @chairflytrainer</span></a>
     <div class="footer-legal">
+      <a href="/">Home</a><span>&middot;</span>
+      <a href="/lessons.html">Lesson Plan</a><span>&middot;</span>
       <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
       <span>&middot;</span>
       <a href="/privacy.html">Privacy Policy</a>
@@ -1099,27 +1128,107 @@
   </div>
 </footer>
 
+<div class="sheet-backdrop" id="sheet-backdrop" aria-hidden="true">
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet-head">
+      <button type="button" class="sheet-close" id="sheet-close" aria-label="Close">&times;</button>
+      <p class="eyebrow">iPad Exclusive</p>
+      <h3 id="sheet-title">ChairFly lives on your iPad.</h3>
+    </div>
+    <p class="sheet-sub">Looks like you're on a phone. Drop your email and we'll send you the App Store link, so it's waiting when you pick up your iPad.</p>
+    <form id="ipad-link-form" name="ipad-link" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="ipad-link" />
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" autocomplete="email" />
+      <button type="submit" class="btn btn-amber">Email me the link</button>
+    </form>
+    <p class="sheet-confirm" id="sheet-confirm">Got it. The App Store link is on its way to your inbox.</p>
+    <a class="sheet-alt" id="sheet-alt" href="https://apps.apple.com/app/chairfly/id6805243067">Open the App Store anyway &rarr;</a>
+  </div>
+</div>
+
 <script>
-  document.getElementById('merch-form').addEventListener('submit', function (e) {
+(function () {
+  var ua = navigator.userAgent || '';
+  var isPhone = /iPhone|iPod/.test(ua) || (/Android/.test(ua) && /Mobile/.test(ua));
+  if (isPhone) document.documentElement.classList.add('is-phone');
+
+  var backdrop = document.getElementById('sheet-backdrop');
+  var sheet = document.getElementById('sheet');
+  function openSheet() {
+    backdrop.classList.add('open');
+    backdrop.setAttribute('aria-hidden', 'false');
+    var input = sheet.querySelector('input[type="email"]');
+    if (input && !sheet.classList.contains('sent')) setTimeout(function () { input.focus(); }, 250);
+  }
+  function closeSheet() {
+    backdrop.classList.remove('open');
+    backdrop.setAttribute('aria-hidden', 'true');
+  }
+  document.getElementById('sheet-close').addEventListener('click', closeSheet);
+  backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeSheet(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(); });
+  document.querySelectorAll('.js-open-sheet').forEach(function (b) { b.addEventListener('click', openSheet); });
+
+  // On phones, App Store badge taps open the sheet first (the link is still one tap away).
+  if (isPhone) {
+    document.querySelectorAll('.js-appstore').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); openSheet(); });
+    });
+  }
+
+  document.getElementById('ipad-link-form').addEventListener('submit', function (e) {
     e.preventDefault();
     var form = this;
-    var data = new FormData(form);
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString()
-    })
-      .then(function () {
-        document.getElementById('merch-confirm').classList.add('show');
-        form.reset();
-      })
-      .catch(function () {
-        // Even if the fetch itself hiccups, still let them know Netlify likely got it
-        // (Netlify forms tolerate this pattern) rather than showing a scary error.
-        document.getElementById('merch-confirm').classList.add('show');
-        form.reset();
-      });
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).finally(function () {
+      sheet.classList.add('sent');
+      form.reset();
+    });
   });
+})();
+</script>
+<script>
+(function () {
+  var track = document.getElementById('t-track');
+  var viewport = document.getElementById('t-viewport');
+  var dotsWrap = document.getElementById('t-dots');
+  if (!track) return;
+  var slides = track.children.length, i = 0, timer = null;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for (var d = 0; d < slides; d++) {
+    var b = document.createElement('button');
+    b.className = 't-dot' + (d === 0 ? ' on' : '');
+    b.setAttribute('aria-label', 'Show testimonial ' + (d + 1));
+    b.dataset.i = d;
+    b.addEventListener('click', function () { go(+this.dataset.i); restart(); });
+    dotsWrap.appendChild(b);
+  }
+  function go(n) {
+    i = (n + slides) % slides;
+    track.style.transform = 'translateX(' + (-100 * i) + '%)';
+    dotsWrap.querySelectorAll('.t-dot').forEach(function (el, k) { el.classList.toggle('on', k === i); });
+  }
+  function restart() {
+    if (reduce) return;
+    clearInterval(timer);
+    timer = setInterval(function () { go(i + 1); }, 8000);
+  }
+  viewport.addEventListener('mouseenter', function () { clearInterval(timer); });
+  viewport.addEventListener('mouseleave', restart);
+  var x0 = null;
+  viewport.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; clearInterval(timer); }, { passive: true });
+  viewport.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+    x0 = null; restart();
+  });
+  restart();
+})();
 </script>
 <script>
 (function () {

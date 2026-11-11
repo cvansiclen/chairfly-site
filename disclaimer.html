@@ -274,10 +274,38 @@
   </div>
 </main>
 
-<footer>
-  <div class="wrap footer-inner">
-    <div>&copy; 2026 Chair Fly. Training use only — not for real-world flight operations.</div>
-    <div><a href="/">chairflytrainer.com</a> &middot; <a href="/support.html">Support</a></div>
+<style>
+  footer.cf-footer { background: #070c28; color: rgba(246,244,239,0.55); padding: 40px 0 28px; font-size: 0.82rem; font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; }
+  .cf-footer .cf-wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+  .cf-footer .cf-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+  .cf-footer .cf-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .cf-footer .cf-brand img { width: 24px; height: 24px; border-radius: 6px; display: block; }
+  .cf-footer .cf-brand span { font-family: "Big Shoulders Display", "Arial Narrow", sans-serif; font-weight: 800; color: #f6f4ef; text-transform: uppercase; letter-spacing: 0.02em; }
+  .cf-footer .cf-social { display: inline-flex; align-items: center; gap: 8px; color: #f6f4ef; text-decoration: none; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.8rem; letter-spacing: 0.03em; padding: 7px 14px; border: 1px solid rgba(246,244,239,0.18); border-radius: 99px; }
+  .cf-footer .cf-social:hover { color: #e8a33d; border-color: #e8a33d; }
+  .cf-footer .cf-social .fs-label { color: rgba(246,244,239,0.6); }
+  .cf-footer .cf-legal { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .cf-footer .cf-legal a { color: rgba(246,244,239,0.55); text-decoration: none; }
+  .cf-footer .cf-legal a:hover { color: #f6f4ef; text-decoration: underline; }
+  .cf-footer .soon-foot { color: rgba(246,244,239,0.35); }
+  .cf-footer .cf-fine { margin-top: 22px; padding-top: 16px; border-top: 1px solid rgba(246,244,239,0.1); font-size: 0.74rem; color: rgba(246,244,239,0.4); }
+</style>
+<footer class="cf-footer">
+  <div class="cf-wrap">
+    <div class="cf-row">
+      <a class="cf-brand" href="/"><img src="chairfly-logo.png" alt="ChairFly logo"><span>ChairFly</span></a>
+      <div>Built by pilots, for pilots who never stop training.</div>
+      <a class="cf-social" href="https://www.instagram.com/chairflytrainer/" target="_blank" rel="noopener" aria-label="ChairFly on Instagram (@chairflytrainer)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span><span class="fs-label">Follow us</span> @chairflytrainer</span></a>
+      <div class="cf-legal">
+        <a href="/">Home</a><span>&middot;</span>
+        <a href="/lessons.html">Lesson Plan</a><span>&middot;</span>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a><span>&middot;</span>
+        <a href="/privacy.html">Privacy Policy</a><span>&middot;</span>
+        <a href="/disclaimer.html">Disclaimer</a><span>&middot;</span>
+        <a href="/support.html">Support</a>
+      </div>
+    </div>
+    <p class="cf-fine">&copy; 2026 ChairFly. Training use only, not for real-world flight operations.</p>
   </div>
 </footer>
 

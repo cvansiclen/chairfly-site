@@ -1,0 +1,8 @@
+{
+  "name": "chairfly-site",
+  "private": true,
+  "description": "chairflytrainer.com: static site plus a Netlify function that emails the App Store link to phone visitors",
+  "dependencies": {
+    "nodemailer": "^6.9.14"
+  }
+}

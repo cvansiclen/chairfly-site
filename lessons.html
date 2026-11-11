@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson Plan · ChairFly</title>
+<meta name="description" content="A 30-lesson home-study plan for ChairFly on iPad: 5 lessons on the 6-Pack and 25 on the Glass Cockpit, each tied to Instrument and Private Pilot ACS elements. Built for students and the instructors who teach them.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ChairFly">
+<meta property="og:title" content="ChairFly Lesson Plan: 30 lessons for your instrument scan">
+<meta property="og:description" content="5 lessons on the 6-Pack, 25 on the Glass Cockpit. Goals, drills, standards, and ACS elements for every lesson.">
+<meta property="og:url" content="https://chairflytrainer.com/lessons.html">
+<meta property="og:image" content="https://chairflytrainer.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="chairfly-logo.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+  :root {
+    --navy-950: #070c28; --navy-900: #0e1951; --navy-800: #182869; --navy-700: #24357f;
+    --paper: #f6f4ef; --paper-dim: #ece9e1; --ink: #12172a; --ink-soft: #454b63; --slate: #5b6584;
+    --amber: #e8a33d; --amber-dim: #c98a2b; --sky: #2f6fb3;
+    --hairline: rgba(18,23,42,0.12); --hairline-dark: rgba(246,244,239,0.18); --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 130px; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: "Big Shoulders Display", "Arial Narrow", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; text-wrap: balance; margin: 0; line-height: 0.95; }
+  h4 { margin: 18px 0 6px; font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); font-weight: 500; }
+  p { margin: 0; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+  .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber-dim); display: flex; align-items: center; gap: 0.6em; }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; display: inline-block; }
+  .mono { font-family: "IBM Plex Mono", monospace; }
+
+  /* nav */
+  header.nav { position: sticky; top: 0; z-index: 40; background: rgba(14,25,81,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--hairline-dark); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px clamp(20px,4vw,48px); max-width: 1180px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand img { width: 34px; height: 34px; border-radius: 8px; display: block; }
+  .brand span { font-family: "Big Shoulders Display", sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--paper); text-transform: uppercase; letter-spacing: 0.02em; }
+  nav.links { display: flex; gap: clamp(14px,2vw,26px); font-family: "IBM Plex Mono", monospace; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  nav.links a { text-decoration: none; color: rgba(246,244,239,0.75); white-space: nowrap; }
+  nav.links a:hover, nav.links a.on { color: var(--amber); }
+  .nav-cta { display: flex; align-items: center; gap: 10px; }
+  .ipad-tag { font-family: "IBM Plex Mono", monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+  .ipad-tag svg { width: 11px; height: 13px; display: block; }
+  @media (max-width: 980px) { nav.links { display: none; } }
+  @media (max-width: 480px) { .nav-cta .ipad-tag { display: none; } }
+
+  /* hero */
+  .hero { background: radial-gradient(120% 140% at 78% -10%, var(--navy-700) 0%, var(--navy-900) 45%, var(--navy-950) 100%); color: var(--paper); padding: clamp(56px,8vw,96px) 0 clamp(48px,6vw,72px); }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); margin-top: 14px; }
+  .hero h1 em { font-style: normal; color: var(--amber); }
+  .hero-sub { margin-top: 18px; max-width: 60ch; font-size: 1.08rem; color: rgba(246,244,239,0.82); }
+  .hero-stats { margin-top: 30px; display: flex; flex-wrap: wrap; gap: clamp(20px,4vw,44px); font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; color: rgba(246,244,239,0.6); }
+  .hero-stats strong { display: block; font-family: "Big Shoulders Display", sans-serif; font-size: 2rem; color: var(--paper); line-height: 1; }
+  .hero-jump { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: "IBM Plex Mono", monospace; font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; padding: 12px 20px; border-radius: 6px; border: 1px solid transparent; cursor: pointer; white-space: nowrap; background: none; }
+  .btn-amber { background: var(--amber); color: var(--navy-950); font-weight: 600; }
+  .btn-amber:hover { background: #f0b158; }
+  .btn-ghost { border-color: var(--hairline-dark); color: var(--paper); }
+  .btn-ghost:hover { border-color: var(--amber); color: var(--amber); }
+  .btn-outline { border-color: var(--hairline); color: var(--ink); }
+  .btn-outline:hover { border-color: var(--navy-900); }
+
+  section { padding: clamp(48px,7vw,84px) 0; }
+  .section-head { max-width: 680px; margin-bottom: clamp(26px,4vw,40px); }
+  .section-head h2, .phase-head h2 { margin-top: 10px; font-size: clamp(1.9rem,3.6vw,2.6rem); }
+  .section-head p, .phase-head p { margin-top: 12px; color: var(--ink-soft); }
+
+  /* how to use */
+  .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 14px; }
+  .rule { padding: 20px; border: 1px solid var(--hairline); border-radius: var(--radius); background: #fff; }
+  .rule .k { font-family: "Big Shoulders Display", sans-serif; font-weight: 800; font-size: 1.9rem; color: var(--amber-dim); line-height: 1; }
+  .rule b { display: block; margin-top: 8px; }
+  .rule p { margin-top: 4px; color: var(--ink-soft); font-size: 0.93rem; }
+
+  /* progress */
+  .progress { position: sticky; top: 59px; z-index: 30; background: rgba(246,244,239,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--hairline); }
+  .progress-inner { display: flex; align-items: center; gap: 14px; padding: 10px 0; flex-wrap: nowrap; }
+  @media (max-width: 1320px) { .toc a span { display: none; } }
+  @media (max-width: 760px) { .progress { position: static; } html { scroll-padding-top: 70px; } }
+  .toc { display: flex; gap: 6px; flex-wrap: wrap; flex: 1 1 auto; }
+  .toc a { text-decoration: none; font-size: 0.78rem; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--hairline); background: #fff; white-space: nowrap; }
+  .toc a span { font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; color: var(--amber-dim); margin-right: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .toc a:hover { border-color: var(--navy-900); }
+  .meter { display: flex; align-items: center; gap: 10px; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; color: var(--slate); }
+  .meter { white-space: nowrap; flex: 0 0 auto; } .meter .bar { width: 90px; height: 6px; border-radius: 3px; background: var(--paper-dim); overflow: hidden; }
+  .meter .bar i { display: block; height: 100%; width: 0; background: var(--amber); transition: width .3s ease; }
+
+  /* phases + lessons */
+  .phase { padding: clamp(40px,6vw,64px) 0 0; }
+  .phase:last-of-type { padding-bottom: clamp(48px,7vw,84px); }
+  .phase-head { max-width: 680px; margin-bottom: 22px; }
+  .lessons { display: grid; gap: 10px; }
+  .lesson { background: #fff; border: 1px solid var(--hairline); border-radius: var(--radius); overflow: hidden; }
+  .lesson[open] { border-color: rgba(14,25,81,0.35); box-shadow: 0 14px 30px -24px rgba(7,12,40,0.5); }
+  .lesson summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 52px 1fr auto; gap: 14px; align-items: center; padding: 14px 16px; }
+  .lesson summary::-webkit-details-marker { display: none; }
+  .l-num { font-family: "Big Shoulders Display", sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--navy-900); line-height: 1; }
+  .lesson.done .l-num { color: var(--amber-dim); }
+  .l-head { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .l-title { font-weight: 600; font-size: 1.04rem; }
+  .l-meta { font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; letter-spacing: 0.05em; color: var(--slate); text-transform: uppercase; }
+  .l-done { display: flex; align-items: center; gap: 6px; font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate); cursor: pointer; }
+  .l-done input { width: 18px; height: 18px; accent-color: var(--amber-dim); cursor: pointer; }
+  .l-body { padding: 0 18px 20px 82px; }
+  .l-goal { padding-top: 4px; font-size: 1.02rem; }
+  .l-grid { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,0.85fr); gap: 28px; }
+  .l-body ol, .l-body ul { margin: 0; padding-left: 20px; }
+  .l-body li { margin: 4px 0; color: var(--ink-soft); }
+  .l-body p { color: var(--ink-soft); }
+  .l-goal b, .l-body p b { color: var(--ink); }
+  .l-standard { margin-top: 18px; padding: 12px 14px; border-left: 3px solid var(--amber); background: #fbf6ec; border-radius: 0 8px 8px 0; }
+  .l-standard h4 { margin-top: 0; color: var(--amber-dim); }
+  .l-standard p { color: var(--ink); }
+  .codes { display: flex; flex-wrap: wrap; gap: 6px; }
+  .code { font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; padding: 3px 8px; border-radius: 4px; background: var(--navy-900); color: #ffd36e; }
+  .code.pa { background: #e4eef9; color: var(--sky); }
+  @media (max-width: 760px) {
+    .l-grid { grid-template-columns: 1fr; gap: 0; }
+    .l-body { padding: 0 16px 18px 16px; }
+    .lesson summary { grid-template-columns: 40px 1fr auto; gap: 10px; }
+    .l-done span { display: none; }
+  }
+
+  /* instructors */
+  .instructors { background: var(--navy-950); color: var(--paper); }
+  .instructors .section-head p { color: rgba(246,244,239,0.72); }
+  .i-quote { font-family: "Big Shoulders Display", sans-serif; font-weight: 700; text-transform: uppercase; font-size: clamp(1.7rem,3.6vw,2.6rem); line-height: 1.02; max-width: 24ch; }
+  .i-quote span { color: var(--amber); }
+  .i-grid { margin-top: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: 14px; }
+  .i-card { padding: 22px; border: 1px solid var(--hairline-dark); border-radius: var(--radius); background: linear-gradient(160deg, var(--navy-800), var(--navy-900)); }
+  .i-card .tag { font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); }
+  .i-card h3 { margin-top: 8px; font-size: 1.45rem; }
+  .i-card p { margin-top: 8px; color: rgba(246,244,239,0.78); font-size: 0.95rem; }
+  .i-sub { margin-top: 48px; }
+  .i-sub h3 { font-size: 1.6rem; }
+  .i-sub > p { margin-top: 8px; color: rgba(246,244,239,0.72); max-width: 70ch; }
+  table.pair { margin-top: 18px; width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+  table.pair th, table.pair td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--hairline-dark); vertical-align: top; }
+  table.pair th { font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(246,244,239,0.55); font-weight: 500; }
+  table.pair td.mono { color: var(--amber); white-space: nowrap; }
+  table.pair td { color: rgba(246,244,239,0.85); }
+  .flow { margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 0; border: 1px solid var(--hairline-dark); border-radius: var(--radius); overflow: hidden; }
+  .flow div { padding: 18px; border-right: 1px solid var(--hairline-dark); }
+  .flow div:last-child { border-right: 0; }
+  .flow b { font-family: "Big Shoulders Display", sans-serif; text-transform: uppercase; font-size: 1.2rem; display: block; color: var(--paper); }
+  .flow small { font-family: "IBM Plex Mono", monospace; color: var(--amber); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .flow p { margin-top: 6px; color: rgba(246,244,239,0.75); font-size: 0.9rem; }
+  @media (max-width: 640px) { .flow div { border-right: 0; border-bottom: 1px solid var(--hairline-dark); } .flow div:last-child { border-bottom: 0; } }
+  .i-cta { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* legend + note */
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; font-size: 0.88rem; color: var(--ink-soft); align-items: center; }
+  .note { margin-top: 18px; font-size: 0.85rem; color: var(--slate); max-width: 80ch; }
+
+  /* get it */
+  .get { background: var(--paper-dim); text-align: center; }
+  .get h2 { font-size: clamp(1.9rem,3.6vw,2.6rem); }
+  .get p { margin: 12px auto 0; color: var(--ink-soft); max-width: 52ch; }
+  .get .stack { margin-top: 22px; display: inline-flex; flex-direction: column; align-items: center; gap: 8px; }
+  .get .ipad-tag { color: var(--amber-dim); font-size: 0.66rem; }
+
+  footer { background: var(--navy-950); color: rgba(246,244,239,0.7); padding: 32px 0; font-size: 0.85rem; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .footer-brand { display: flex; align-items: center; gap: 10px; }
+  .footer-brand img { width: 28px; height: 28px; border-radius: 6px; }
+  .footer-brand span { font-family: "Big Shoulders Display", sans-serif; font-weight: 800; text-transform: uppercase; color: var(--paper); font-size: 1.1rem; }
+  .footer-social { display: inline-flex; align-items: center; gap: 8px; color: var(--paper); text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; padding: 7px 14px; border: 1px solid var(--hairline-dark); border-radius: 99px; }
+  .footer-social:hover { color: var(--amber); border-color: var(--amber); }
+  .footer-social .fs-label { color: rgba(246,244,239,0.6); }
+  .footer-legal { display: flex; gap: 8px; flex-wrap: wrap; }
+  .footer-legal a { color: rgba(246,244,239,0.55); text-decoration: none; }
+  .footer-legal a:hover { color: var(--paper); text-decoration: underline; }
+
+  @media print {
+    header.nav, .progress, .hero-jump, .get, footer, .l-done, .i-cta, .print-btn { display: none !important; }
+    .hero, .instructors { background: #fff !important; color: var(--ink) !important; }
+    .hero-sub, .instructors p, .i-card p, table.pair td, .flow p, .hero-stats { color: var(--ink-soft) !important; }
+    .i-card, .flow, .flow div, table.pair td, table.pair th { background: #fff !important; border-color: var(--hairline) !important; color: var(--ink) !important; }
+    .flow b, .hero-stats strong { color: var(--ink) !important; }
+    .lesson { break-inside: avoid; box-shadow: none !important; }
+    .lesson > .l-body { display: block !important; }
+    section { padding: 18px 0; }
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/"><img src="chairfly-logo.png" alt="ChairFly logo"><span>ChairFly</span></a>
+    <nav class="links">
+      <a href="/#what-it-is">What It Is</a>
+      <a href="/#who-its-for">Who It's For</a>
+      <a href="#instructors">Instructors</a>
+      <a href="/#how-it-works">How It Works</a>
+      <a href="/#goal">Our Goal</a>
+      <a href="/lessons.html" class="on">Lesson Plan</a>
+    </nav>
+    <div class="nav-cta">
+      <span class="ipad-tag"><svg viewBox="0 0 11 13" aria-hidden="true"><rect x="0.75" y="0.75" width="9.5" height="11.5" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="5.5" cy="10.4" r="0.7" fill="currentColor"/></svg>iPad exclusive</span>
+      <a href="https://apps.apple.com/app/chairfly/id6805243067" aria-label="Download on the App Store"><img src="app-store-badge.svg" alt="Download on the App Store" style="display:block;width:120px;height:auto;"></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--amber);">Home Study &middot; Lesson Plan</p>
+      <h1>30 lessons to a scan that <em>runs on its own.</em></h1>
+      <p class="hero-sub">The cross-check is a perishable skill, and it's hard to get enough reps in the airplane. This plan gives you something specific to work on every time you pick up the iPad: a goal, a drill, a standard to hit, and the ACS elements it supports. Work through it in order. Don't move on until you hit the standard.</p>
+      <div class="hero-stats">
+        <div><strong>30</strong>lessons</div>
+        <div><strong>5</strong>on the 6-Pack</div>
+        <div><strong>25</strong>on the Glass Cockpit</div>
+        <div><strong>10&ndash;45</strong>minutes each</div>
+      </div>
+      <div class="hero-jump">
+        <a class="btn btn-amber" href="#p1">Start with Lesson 1</a>
+        <a class="btn btn-ghost" href="#instructors">For Instructors</a>
+        <button class="btn btn-ghost print-btn" type="button" onclick="document.querySelectorAll('details.lesson').forEach(function(d){d.open=true});window.print()">Print the plan</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-to-use">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How to Use It</p>
+        <h2>Short sessions. Honest standards.</h2>
+        <p>Fifteen focused minutes beats an hour of free flying. Every lesson is built to be flown more than once.</p>
+      </div>
+      <div class="rules">
+        <div class="rule"><span class="k">01</span><b>One lesson per session</b><p>Pick one, fly it until you hit the standard, then stop. Leave something for next time.</p></div>
+        <div class="rule"><span class="k">02</span><b>Talk out loud</b><p>Call out what you see and what you're correcting. It slows your scan down to a speed you can fix.</p></div>
+        <div class="rule"><span class="k">03</span><b>Hit the standard twice</b><p>Once can be luck. Hit it twice in a row, then check the lesson off and move on.</p></div>
+        <div class="rule"><span class="k">04</span><b>Bring it to your instructor</b><p>Show your CFI or CFII what you worked on. Ground reps make airplane time count for more.</p></div>
+      </div>
+      <div class="legend">
+        <span class="code">IR.IV.A.S1</span> Instrument Rating ACS (FAA-S-ACS-8C)
+        <span class="code pa">PA.VIII.A.S2</span> Private Pilot ACS (FAA-S-ACS-6C)
+      </div>
+      <p class="note">ACS elements are listed so you and your instructor can see which skills each lesson supports. Standards are paraphrased from the ACS; always use the current ACS and your instructor as the final word. ChairFly is a home-study tool. It doesn't count toward logged instrument time or currency, and it isn't a replacement for training with an instructor. Phases 2&ndash;5 use the Glass Cockpit and its scenarios.</p>
+    </div>
+  </section>
+
+  <div class="plan">
+  <div class="progress">
+    <div class="wrap progress-inner">
+      <nav class="toc" aria-label="Phases"><a href="#p1"><span>Phase 1</span>6-Pack Foundations</a><a href="#p2"><span>Phase 2</span>Glass Cockpit Fundamentals</a><a href="#p3"><span>Phase 3</span>Holding</a><a href="#p4"><span>Phase 4</span>Approaches &amp; the Missed</a><a href="#p5"><span>Phase 5</span>Checkride Profiles</a></nav>
+      <div class="meter"><span class="bar"><i id="bar"></i></span><span id="count">0 / 30 done</span></div>
+    </div>
+  </div>
+
+    <section class="phase" id="p1">
+      <div class="wrap">
+        <div class="phase-head">
+          <p class="eyebrow">Phase 1 &middot; Lessons 1–5 · Free 6-Pack</p>
+          <h2>6-Pack Foundations</h2>
+          <p>Build the scan on round gauges first. Everything later in the plan sits on top of these five lessons, so don&#x27;t rush them.</p>
+        </div>
+        <div class="lessons">
+      <details class="lesson" id="lesson-1" data-n="1" open>
+        <summary>
+          <span class="l-num">01</span>
+          <span class="l-head"><span class="l-title">The Panel and the Scan</span><span class="l-meta">6-Pack &middot; 10 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="1" aria-label="Mark lesson 1 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Know what every instrument tells you, which ones are primary for each maneuver, and build a scan that always comes back to the attitude indicator.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>6-Pack. Sit the way you&#x27;d sit in the airplane, iPad held level in front of you like a yoke. No maneuvering yet.</p>
+              <h4>The drill</h4><ol><li>Name each of the six instruments out loud and say what it measures: pitch, bank, airspeed, altitude, rate of climb, heading, rate of turn.</li><li>Tilt the iPad gently left and right. Watch the attitude indicator, then the turn coordinator, then the heading indicator respond. Say which one moved first.</li><li>Practice the radial scan: attitude → airspeed → attitude → altimeter → attitude → heading → attitude. Ten full cycles, out loud.</li><li>Now say the primary instrument for straight and level: pitch = altimeter, bank = heading indicator, power = airspeed.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>You can run ten clean scan cycles without your eyes stalling on one gauge, and name primary/supporting for straight and level without hesitation.</p></div>
+              <h4>Watch for</h4><ul><li>Fixation: staring at one instrument while the others drift.</li><li>Omission: never looking at the turn coordinator or VSI.</li><li>Skipping the return to the attitude indicator between gauges.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.K1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S2</span><span class="code pa" title="Private Pilot ACS (FAA-S-ACS-6C)">PA.VIII.A.S1</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-2" data-n="2">
+        <summary>
+          <span class="l-num">02</span>
+          <span class="l-head"><span class="l-title">Straight and Level, Hands Light</span><span class="l-meta">6-Pack &middot; 10–15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="2" aria-label="Mark lesson 2 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Hold altitude and heading with small, early corrections instead of big, late ones.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>6-Pack. Bring the throttle up to a normal cruise power setting and let airspeed settle.</p>
+              <h4>The drill</h4><ol><li>Pick the current altitude and heading. Fly them for 3 minutes without a single deliberate maneuver.</li><li>Every time the altimeter needle moves 20 ft, make a tiny pitch correction on the iPad. Don&#x27;t wait for 100.</li><li>Every time heading moves 2–3°, use a shallow bank (half the deflection you think you need) to come back.</li><li>Repeat for a second 3-minute block at a different power setting and note how the pitch for level flight changes.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Altitude ±100 ft, heading ±10°, airspeed ±10 kt for a full 3-minute block. Then tighten it: aim for half those numbers.</p></div>
+              <h4>Watch for</h4><ul><li>Chasing the VSI: correct off the altimeter trend, confirm with the VSI.</li><li>Over-banking a heading correction.</li><li>Forgetting airspeed changes when you change pitch.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S2</span><span class="code pa" title="Private Pilot ACS (FAA-S-ACS-6C)">PA.VIII.A.S2</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-3" data-n="3">
+        <summary>
+          <span class="l-num">03</span>
+          <span class="l-head"><span class="l-title">Standard-Rate Turns to a Heading</span><span class="l-meta">6-Pack &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="3" aria-label="Mark lesson 3 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Roll into a standard-rate turn, hold it, and roll out on the heading you meant to.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>6-Pack, stabilized straight and level.</p>
+              <h4>The drill</h4><ol><li>Turn left 90°. Set bank with the attitude indicator, then confirm standard rate on the turn coordinator.</li><li>Hold altitude through the turn: expect to add a little back pressure (pitch up slightly) as you roll in.</li><li>Lead the rollout by about half your bank angle in degrees (roughly 7–8° for a typical standard-rate turn).</li><li>Fly the turn pattern: 90° left, 90° right, 180° left, 180° right, 360° left. Pause level between each one.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Roll out within ±10° of the target heading, altitude ±100 ft through the turn, bank steady at standard rate.</p></div>
+              <h4>Watch for</h4><ul><li>Losing altitude in the first 10 seconds of the turn.</li><li>Rolling out late and overshooting.</li><li>Letting bank creep steeper as the turn goes on.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code pa" title="Private Pilot ACS (FAA-S-ACS-6C)">PA.VIII.D.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S2</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-4" data-n="4">
+        <summary>
+          <span class="l-num">04</span>
+          <span class="l-head"><span class="l-title">Climbs, Descents, and Level-Offs</span><span class="l-meta">6-Pack &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="4" aria-label="Mark lesson 4 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Change altitude at a constant airspeed and level off exactly where you meant to.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>6-Pack, stabilized straight and level.</p>
+              <h4>The drill</h4><ol><li>Climb 1,000 ft: add power, set the climb attitude, and let airspeed settle. Use the throttle lever and pitch together.</li><li>Begin the level-off about 10% of your vertical speed early (500 fpm → start at 50 ft before the target).</li><li>Descend 1,000 ft: reduce power, set the descent attitude, and hold airspeed constant.</li><li>Repeat with a heading change during the climb and during the descent.</li><li>Push past the second pitch line on purpose and watch the airspeed bleed and the climb roll over. Recover with pitch down and power, then never fly there again.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Level off within ±100 ft of the target, airspeed ±10 kt in the climb and descent, heading ±10°.</p></div>
+              <h4>Watch for</h4><ul><li>Pitching for the climb before adding power.</li><li>Leveling off late and ballooning through the altitude.</li><li>Over-pitching: in ChairFly, too much pitch-up bleeds airspeed and the climb turns into a sink.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code pa" title="Private Pilot ACS (FAA-S-ACS-6C)">PA.VIII.B.S1</span><span class="code pa" title="Private Pilot ACS (FAA-S-ACS-6C)">PA.VIII.B.S2</span><span class="code pa" title="Private Pilot ACS (FAA-S-ACS-6C)">PA.VIII.C.S2</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.K2</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-5" data-n="5">
+        <summary>
+          <span class="l-num">05</span>
+          <span class="l-head"><span class="l-title">Mixed Cockpit: Changing the Picture</span><span class="l-meta">6-Pack · Mixed Cockpit &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="5" aria-label="Mark lesson 5 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Move your scan between round gauges and a compact glass attitude display without losing control.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>6-Pack with the Mixed Cockpit option turned on.</p>
+              <h4>The drill</h4><ol><li>Fly straight and level for 2 minutes. Note where your eyes go first now that attitude is on a glass display.</li><li>Repeat the Lesson 3 turn pattern. Use the glass attitude display for bank, the round gauges for the rest.</li><li>Repeat the Lesson 4 climbs and descents.</li><li>Switch Mixed Cockpit off and fly the turn pattern again. Notice what your scan does when the picture changes back.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Lesson 2–4 standards, held on both panel layouts.</p></div>
+              <h4>Watch for</h4><ul><li>Staring at the bigger, brighter glass display and dropping the rest of the scan.</li><li>Losing the heading indicator when it isn&#x27;t next to the attitude display any more.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S2</span><span class="code pa" title="Private Pilot ACS (FAA-S-ACS-6C)">PA.VIII.A.S1</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+    </section>
+    <section class="phase" id="p2">
+      <div class="wrap">
+        <div class="phase-head">
+          <p class="eyebrow">Phase 2 &middot; Lessons 6–11 · Glass Cockpit</p>
+          <h2>Glass Cockpit Fundamentals</h2>
+          <p>Same scan, new presentation. Learn to read tapes and trend vectors, use the altitude selector, and fly to an ATC instruction.</p>
+        </div>
+        <div class="lessons">
+      <details class="lesson" id="lesson-6" data-n="6">
+        <summary>
+          <span class="l-num">06</span>
+          <span class="l-head"><span class="l-title">Reading the Glass Panel</span><span class="l-meta">Glass Cockpit &middot; 10 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="6" aria-label="Mark lesson 6 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Translate everything you learned on the 6-Pack into the glass primary flight display.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>Glass Cockpit, free flight.</p>
+              <h4>The drill</h4><ol><li>Find each 6-Pack instrument on the glass panel: airspeed tape, attitude, altitude tape, vertical speed, heading, turn rate.</li><li>Make a small pitch change. Watch the altitude tape&#x27;s trend and the vertical speed. Say how far the altitude will move in the next few seconds.</li><li>Make a small bank change. Watch the heading and turn rate respond.</li><li>Run the same radial scan from Lesson 1, out loud, on the glass panel.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>You can predict where the tapes are heading before they get there, and you can find every value without hunting.</p></div>
+              <h4>Watch for</h4><ul><li>Reading tape numbers instead of watching their movement.</li><li>Letting the attitude display take over your whole scan.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.K1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S2</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-7" data-n="7">
+        <summary>
+          <span class="l-num">07</span>
+          <span class="l-head"><span class="l-title">Straight and Level on Tapes</span><span class="l-meta">Glass Cockpit &middot; 10–15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="7" aria-label="Mark lesson 7 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Hold altitude, heading, and airspeed on the glass panel as tightly as you did on the 6-Pack.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>Glass Cockpit, free flight at cruise power.</p>
+              <h4>The drill</h4><ol><li>Fly two 3-minute blocks of straight and level, same as Lesson 2.</li><li>Correct off the trend: if the altitude tape starts moving, fix the pitch before the number changes much.</li><li>Make three power changes (cruise → slower → cruise) and hold altitude through each one.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Altitude ±100 ft, heading ±10°, airspeed ±10 kt through every power change.</p></div>
+              <h4>Watch for</h4><ul><li>Big corrections to small deviations.</li><li>Forgetting to re-trim your hands (relax your grip) after each power change.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S2</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-8" data-n="8">
+        <summary>
+          <span class="l-num">08</span>
+          <span class="l-head"><span class="l-title">Turns and Heading Discipline</span><span class="l-meta">Glass Cockpit &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="8" aria-label="Mark lesson 8 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Turn to an exact heading on the glass panel and roll out on it every time.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>Glass Cockpit, free flight.</p>
+              <h4>The drill</h4><ol><li>Fly the Lesson 3 turn pattern on the glass panel.</li><li>Add timed turns: a standard-rate turn is 3° per second, so a 90° turn should take about 30 seconds. Check yourself against a clock.</li><li>Fly a 360° turn and roll out on the original heading without looking away from the panel.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Roll out within ±10° of the target heading, altitude ±100 ft, bank steady.</p></div>
+              <h4>Watch for</h4><ul><li>Rolling out on the number instead of leading it.</li><li>Altitude creeping during long turns.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S2</span><span class="code pa" title="Private Pilot ACS (FAA-S-ACS-6C)">PA.VIII.D.S1</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-9" data-n="9">
+        <summary>
+          <span class="l-num">09</span>
+          <span class="l-head"><span class="l-title">The Altitude Selector and Level-Offs</span><span class="l-meta">Glass Cockpit &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="9" aria-label="Mark lesson 9 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Set your target altitude first, then fly to it and level off on it.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>Glass Cockpit, free flight.</p>
+              <h4>The drill</h4><ol><li>Before every altitude change, set the new altitude in the altitude selector. Make this a habit, not a step.</li><li>Climb 1,000 ft, then 500 ft, then descend 1,500 ft. Lead each level-off by about 10% of vertical speed.</li><li>Combine: climb 1,000 ft while turning 90°. Level off and roll out at the same time.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Every level-off within ±100 ft of the selected altitude, airspeed ±10 kt during the change.</p></div>
+              <h4>Watch for</h4><ul><li>Changing altitude before setting the selector.</li><li>Overshooting the level-off because the climb was too aggressive.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S2</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.A.S1</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-10" data-n="10">
+        <summary>
+          <span class="l-num">10</span>
+          <span class="l-head"><span class="l-title">Pitch + Power = Performance</span><span class="l-meta">Glass Cockpit &middot; 15–20 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="10" aria-label="Mark lesson 10 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Build your own table of pitch and power settings so every change starts close to correct.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>Glass Cockpit, free flight. Grab a notepad.</p>
+              <h4>The drill</h4><ol><li>For each of these, find the throttle position and pitch that hold it, then write them down: cruise level, slow level, cruise climb, cruise descent, approach descent.</li><li>Fly each one from memory: set the pitch and power from your table first, then fine-tune.</li><li>Fly a sequence: cruise → slow → approach descent → level → climb, using only your table to start each segment.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Each segment within ±10 kt and on target vertical speed within 30 seconds of setting it.</p></div>
+              <h4>Watch for</h4><ul><li>Fine-tuning before setting the known numbers.</li><li>Using pitch alone to fix airspeed on a descent.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.K2</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.IV.A.S2</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-11" data-n="11">
+        <summary>
+          <span class="l-num">11</span>
+          <span class="l-head"><span class="l-title">Flying an ATC Clearance</span><span class="l-meta">Glass Cockpit &middot; 10–15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="11" aria-label="Mark lesson 11 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Hear an instruction, understand it, and comply promptly and accurately.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>Glass Cockpit, any scenario with ATC instructions (start with the ILS).</p>
+              <h4>The drill</h4><ol><li>Before you move anything, read the instruction back out loud like you would on frequency.</li><li>Set the selector and heading, then fly it. Time how long it takes you from hearing it to being established.</li><li>Fly the first three minutes of the scenario three times. Each time, cut your reaction time.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Correct readback every time, and a prompt turn and climb or descent toward the assigned heading and altitude.</p></div>
+              <h4>Watch for</h4><ul><li>Turning the wrong direction for a heading.</li><li>Starting the climb before setting the new altitude.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.A.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.A.S5</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+    </section>
+    <section class="phase" id="p3">
+      <div class="wrap">
+        <div class="phase-head">
+          <p class="eyebrow">Phase 3 &middot; Lessons 12–18 · Glass Cockpit · VOR Hold</p>
+          <h2>Holding</h2>
+          <p>Know where you are, check your entry, and fly the hold to checkride standards until it&#x27;s boring.</p>
+        </div>
+        <div class="lessons">
+      <details class="lesson" id="lesson-12" data-n="12">
+        <summary>
+          <span class="l-num">12</span>
+          <span class="l-head"><span class="l-title">Where Am I? Orientation to the Station</span><span class="l-meta">Glass Cockpit · VOR Hold &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="12" aria-label="Mark lesson 12 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Picture your position relative to the station and the hold before you get there.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>VOR Hold scenario.</p>
+              <h4>The drill</h4><ol><li>When the scenario starts, stop. Say out loud: which side of the station you&#x27;re on, which way you&#x27;re headed, and where the hold is.</li><li>Sketch the hold on paper: fix, inbound course, turn direction, and an arrow for your current position.</li><li>Fly toward the fix and confirm your picture against the map as you get closer.</li><li>Restart and repeat until your sketch is right every time before you move the iPad.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Correct picture of your position and the hold, every time, before you fly.</p></div>
+              <h4>Watch for</h4><ul><li>Confusing the inbound course with your current heading.</li><li>Forgetting which way the turns go (standard is right turns).</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.V.A.S2</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.K1</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-13" data-n="13">
+        <summary>
+          <span class="l-num">13</span>
+          <span class="l-head"><span class="l-title">Hold Entries, Part 1: Direct</span><span class="l-meta">Glass Cockpit · VOR Hold &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="13" aria-label="Mark lesson 13 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Figure out your entry before you reach the fix, then check it.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>VOR Hold scenario.</p>
+              <h4>The drill</h4><ol><li>Read the hold instruction and sketch it, like Lesson 12.</li><li>Draw the entry sectors: direct, teardrop, parallel. Decide which sector you&#x27;re in.</li><li>Use the hold-entry popup to check your entry. If you were wrong, work out why before flying.</li><li>Fly a direct entry: cross the fix and turn to the outbound heading.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Correct entry, figured out on your own before you check it, and a prompt turn at the fix.</p></div>
+              <h4>Watch for</h4><ul><li>Using the popup to find the answer instead of to check it.</li><li>Turning the wrong way at the fix.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.K1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S3</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-14" data-n="14">
+        <summary>
+          <span class="l-num">14</span>
+          <span class="l-head"><span class="l-title">Hold Entries, Part 2: Teardrop</span><span class="l-meta">Glass Cockpit · VOR Hold &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="14" aria-label="Mark lesson 14 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Fly a teardrop entry and get established on the inbound course without overshooting.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>VOR Hold scenario. Restart until you get a start position in the teardrop sector, or work out the entry for each start you get.</p>
+              <h4>The drill</h4><ol><li>Check your entry before the fix.</li><li>At the fix, turn to the teardrop heading (about 30° off the outbound course, toward the holding side).</li><li>Fly outbound about one minute, then turn in the holding direction to intercept the inbound course.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Correct entry, established inbound with the CDI within ¾ scale, altitude ±100 ft.</p></div>
+              <h4>Watch for</h4><ul><li>Turning the wrong way back to the inbound course.</li><li>Rolling out with a big intercept angle and blowing through the course.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.R4</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S4</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-15" data-n="15">
+        <summary>
+          <span class="l-num">15</span>
+          <span class="l-head"><span class="l-title">Hold Entries, Part 3: Parallel</span><span class="l-meta">Glass Cockpit · VOR Hold &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="15" aria-label="Mark lesson 15 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Fly the parallel entry, the one most students mix up.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>VOR Hold scenario, working from parallel-sector starts.</p>
+              <h4>The drill</h4><ol><li>Check your entry before the fix.</li><li>At the fix, turn to parallel the inbound course, flying outbound on the non-holding side.</li><li>After about one minute, turn toward the holding side (more than 180°) to return to the fix or intercept inbound.</li><li>Say out loud which way you&#x27;re turning before you turn. This is where most mistakes happen.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Correct entry and correct turn direction every time, then established inbound within ¾ scale.</p></div>
+              <h4>Watch for</h4><ul><li>Turning toward the non-holding side on the turn back.</li><li>Flying outbound on the wrong side of the course.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.R4</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S4</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-16" data-n="16">
+        <summary>
+          <span class="l-num">16</span>
+          <span class="l-head"><span class="l-title">Flying the Racetrack</span><span class="l-meta">Glass Cockpit · VOR Hold &middot; 15–20 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="16" aria-label="Mark lesson 16 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Once you&#x27;re in the hold, fly it smoothly lap after lap.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>VOR Hold scenario.</p>
+              <h4>The drill</h4><ol><li>Get established and fly three full laps of the hold.</li><li>Time your legs with a watch: aim for a one-minute inbound leg. Adjust the outbound leg to fix the inbound timing.</li><li>At the fix each lap, run the 5 Ts out loud: Turn, Time, Twist, Throttle, Talk.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Airspeed ±10 kt, altitude ±100 ft, heading ±10°, CDI within ¾ scale on the inbound leg.</p></div>
+              <h4>Watch for</h4><ul><li>Forgetting to start the timer.</li><li>Altitude drifting in the turns at each end.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S3</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S4</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S6</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-17" data-n="17">
+        <summary>
+          <span class="l-num">17</span>
+          <span class="l-head"><span class="l-title">Holds on Rapid-Fire</span><span class="l-meta">Glass Cockpit · VOR Hold &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="17" aria-label="Mark lesson 17 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Make entries automatic by running a lot of them in a short session.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>VOR Hold scenario.</p>
+              <h4>The drill</h4><ol><li>Restart the scenario ten times. Each time, sketch the hold, figure out your entry, check it, and fly only through the entry turn.</li><li>Keep a tally: right on the first try vs. needed the popup.</li><li>Any entry you missed, fly it all the way to established inbound.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>9 out of 10 entries right before checking, in under 20 seconds each.</p></div>
+              <h4>Watch for</h4><ul><li>Guessing to save time. Speed comes from reps, not shortcuts.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.K1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.R4</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-18" data-n="18">
+        <summary>
+          <span class="l-num">18</span>
+          <span class="l-head"><span class="l-title">Holding to Checkride Standard</span><span class="l-meta">Glass Cockpit · VOR Hold &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="18" aria-label="Mark lesson 18 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Fly a full hold, from clearance to two laps, as if an examiner were sitting next to you.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>VOR Hold scenario. Have someone watch, or record your screen.</p>
+              <h4>The drill</h4><ol><li>Read back the clearance, sketch the hold, figure out the entry, and check it.</li><li>Fly the entry and two full laps with no restarts.</li><li>Debrief: where did you go outside standards, and why?</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Every Lesson 13–16 standard, held for the whole profile with no restarts.</p></div>
+              <h4>Watch for</h4><ul><li>Relaxing on lap two. That&#x27;s where altitude goes.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.A.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S3</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S4</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S6</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+    </section>
+    <section class="phase" id="p4">
+      <div class="wrap">
+        <div class="phase-head">
+          <p class="eyebrow">Phase 4 &middot; Lessons 19–27 · Glass Cockpit · VOR, ILS, LNAV, LNAV+VNAV, Missed</p>
+          <h2>Approaches &amp; the Missed</h2>
+          <p>Every approach type ChairFly offers, from the first intercept to the decision to land or go missed.</p>
+        </div>
+        <div class="lessons">
+      <details class="lesson" id="lesson-19" data-n="19">
+        <summary>
+          <span class="l-num">19</span>
+          <span class="l-head"><span class="l-title">VOR Approach: Course and Stepdowns</span><span class="l-meta">Glass Cockpit · VOR Approach &middot; 15–20 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="19" aria-label="Mark lesson 19 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Fly a non-precision approach: track the course and step down to each published altitude.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>VOR Approach scenario.</p>
+              <h4>The drill</h4><ol><li>Before you start down, say the final approach course, each stepdown altitude, and the MDA out loud.</li><li>Track the course with small heading corrections. Bracket: if you correct 10° and it holds, try 5° back.</li><li>At each fix, descend promptly to the next altitude and level off on it.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>CDI within ¾ scale, airspeed ±10 kt, each stepdown altitude held, never below a published altitude.</p></div>
+              <h4>Watch for</h4><ul><li>Descending before the fix.</li><li>Chasing the needle with big heading changes.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S9</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S11</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S12</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-20" data-n="20">
+        <summary>
+          <span class="l-num">20</span>
+          <span class="l-head"><span class="l-title">VOR Approach: Level at the MDA</span><span class="l-meta">Glass Cockpit · VOR Approach &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="20" aria-label="Mark lesson 20 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Get down to the MDA, level off, and hold it until the point where you&#x27;d go missed.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>VOR Approach scenario.</p>
+              <h4>The drill</h4><ol><li>Fly the approach from Lesson 19 down to the MDA.</li><li>Level off at the MDA: lead it a little, add power, and hold altitude while you keep tracking the course.</li><li>Hold the MDA on course until the end of the approach. Say out loud what you&#x27;d do if you don&#x27;t see the runway.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>MDA +100/−0 ft, CDI within ¾ scale, airspeed ±10 kt.</p></div>
+              <h4>Watch for</h4><ul><li>Sinking below the MDA during the level-off.</li><li>Forgetting power at the level-off and losing airspeed.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S11</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S12</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.R5</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-21" data-n="21">
+        <summary>
+          <span class="l-num">21</span>
+          <span class="l-head"><span class="l-title">ILS: Intercepting the Localizer</span><span class="l-meta">Glass Cockpit · ILS &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="21" aria-label="Mark lesson 21 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Turn onto the localizer on time and get established without overshooting.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>ILS scenario.</p>
+              <h4>The drill</h4><ol><li>Fly the ATC vectors. As the localizer needle comes alive, start your turn to the final course.</li><li>Bracket the localizer with small corrections. It gets more sensitive the closer you get.</li><li>Fly only to established on the localizer, then restart. Do it five times.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Established with no overshoot past ¾ scale, airspeed ±10 kt, assigned altitude held until glideslope intercept.</p></div>
+              <h4>Watch for</h4><ul><li>Turning late and flying through the localizer.</li><li>Big corrections close in.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.A.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.A.S4</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.S9</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-22" data-n="22">
+        <summary>
+          <span class="l-num">22</span>
+          <span class="l-head"><span class="l-title">ILS: Riding the Glideslope</span><span class="l-meta">Glass Cockpit · ILS &middot; 15–20 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="22" aria-label="Mark lesson 22 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Catch the glideslope and hold it with small pitch and power changes.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>ILS scenario.</p>
+              <h4>The drill</h4><ol><li>As the glideslope reaches center, reduce power and set your approach descent attitude from your Lesson 10 table.</li><li>Glideslope high? Pitch down a hair and pull a little power. Low? The opposite. Small changes only.</li><li>Say the needles out loud every few seconds: &#x27;localizer centered, glideslope a dot high, correcting.&#x27;</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Localizer and glideslope within ¾ scale, airspeed ±10 kt, a stable descent rate.</p></div>
+              <h4>Watch for</h4><ul><li>Diving for the glideslope.</li><li>Fixating on the glideslope and letting the localizer go.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.S11</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.S12</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.R5</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-23" data-n="23">
+        <summary>
+          <span class="l-num">23</span>
+          <span class="l-head"><span class="l-title">ILS: Down to Decision Altitude</span><span class="l-meta">Glass Cockpit · ILS &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="23" aria-label="Mark lesson 23 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Fly a stable approach all the way to DA and make the call there.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>ILS scenario.</p>
+              <h4>The drill</h4><ol><li>Set DA in the altitude selector before you start down.</li><li>Fly the whole approach, stable, to DA.</li><li>At DA, decide out loud: land, or go missed. On this lesson, practice landing it clean.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Stable all the way to DA: needles within ¾ scale, airspeed ±10 kt, no descent below DA without the runway.</p></div>
+              <h4>Watch for</h4><ul><li>Getting unstable in the last 500 ft.</li><li>Hesitating at DA.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.S12</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.S13</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.R7</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-24" data-n="24">
+        <summary>
+          <span class="l-num">24</span>
+          <span class="l-head"><span class="l-title">Going Missed</span><span class="l-meta">Glass Cockpit · Missed Approach &middot; 15 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="24" aria-label="Mark lesson 24 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Turn &#x27;no runway at DA&#x27; into a smooth climb out, right away.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>ILS Missed (Missed Approach Practice) scenario.</p>
+              <h4>The drill</h4><ol><li>Brief the missed approach before you start down: first heading, first altitude, where it ends.</li><li>Fly the ILS to DA. At DA: power up, pitch up, say &#x27;going missed.&#x27;</li><li>Fly the climb out and level off at the missed approach altitude.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Missed started at DA with no hesitation, altitude ±100 ft, heading ±10°, airspeed ±10 kt on the climb out.</p></div>
+              <h4>Watch for</h4><ul><li>Pitching up before adding power.</li><li>Forgetting the first heading because you didn&#x27;t brief it.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.S13</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.C.K1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.C.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.C.S2</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-25" data-n="25">
+        <summary>
+          <span class="l-num">25</span>
+          <span class="l-head"><span class="l-title">Missed Approach to the Hold</span><span class="l-meta">Glass Cockpit · Missed Approach &middot; 20 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="25" aria-label="Mark lesson 25 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Fly the whole missed approach procedure, including the hold where it ends.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>ILS Missed (Missed Approach Practice) scenario.</p>
+              <h4>The drill</h4><ol><li>Fly the ILS, go missed at DA, and climb out as published.</li><li>On the way to the VOR, figure out your hold entry, then check it.</li><li>Enter the hold and fly one full lap.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Lesson 24 standards, then Lesson 18 holding standards.</p></div>
+              <h4>Watch for</h4><ul><li>Focusing so hard on the climb that you&#x27;re not ready for the hold entry.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.C.S5</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.C.S7</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.C.R2</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S1</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-26" data-n="26">
+        <summary>
+          <span class="l-num">26</span>
+          <span class="l-head"><span class="l-title">RNAV: LNAV Approach</span><span class="l-meta">Glass Cockpit · LNAV &middot; 15–20 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="26" aria-label="Mark lesson 26 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Fly a GPS approach with lateral guidance only, stepping down to the MDA.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>LNAV approach scenario.</p>
+              <h4>The drill</h4><ol><li>Brief the approach: waypoints, altitude at each, and the MDA.</li><li>Fly waypoint to waypoint with the course needle centered.</li><li>Step down at each waypoint and level off at the MDA, like Lesson 20.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Course needle within ¾ scale, airspeed ±10 kt, each waypoint altitude held, MDA +100/−0 ft.</p></div>
+              <h4>Watch for</h4><ul><li>Treating LNAV like a glidepath. There&#x27;s no vertical guidance: you manage the descent.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S9</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S11</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S12</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-27" data-n="27">
+        <summary>
+          <span class="l-num">27</span>
+          <span class="l-head"><span class="l-title">RNAV: LNAV+VNAV Approach</span><span class="l-meta">Glass Cockpit · LNAV+VNAV &middot; 15–20 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="27" aria-label="Mark lesson 27 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Fly the same course, now with a glidepath, down to a DA.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>LNAV+VNAV approach scenario.</p>
+              <h4>The drill</h4><ol><li>Brief it the same way as Lesson 26, but note the DA instead of an MDA.</li><li>Hold the glidepath with small pitch and power changes, like the ILS.</li><li>Fly to DA and make the call out loud.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Course and glidepath within ¾ scale, airspeed ±10 kt, a steady descent rate, no descent below DA.</p></div>
+              <h4>Watch for</h4><ul><li>Mixing up the LNAV and LNAV+VNAV minimums.</li><li>Chasing the glidepath diamond.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.K2</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.K4</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.R5</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S12</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+    </section>
+    <section class="phase" id="p5">
+      <div class="wrap">
+        <div class="phase-head">
+          <p class="eyebrow">Phase 5 &middot; Lessons 28–30 · Glass Cockpit</p>
+          <h2>Checkride Profiles</h2>
+          <p>Back-to-back profiles flown like a stage check. Grade yourself honestly, or hand the iPad to your instructor.</p>
+        </div>
+        <div class="lessons">
+      <details class="lesson" id="lesson-28" data-n="28">
+        <summary>
+          <span class="l-num">28</span>
+          <span class="l-head"><span class="l-title">Stage Check 1: Hold + Non-Precision</span><span class="l-meta">Glass Cockpit &middot; 30 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="28" aria-label="Mark lesson 28 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Fly a hold and a VOR approach in one sitting, with no restarts.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>VOR Hold, then VOR Approach. Have a CFI watch if you can, or record your screen.</p>
+              <h4>The drill</h4><ol><li>VOR Hold: brief, figure out and check the entry, fly two laps.</li><li>VOR Approach: brief, fly it down to the MDA, hold the MDA to the end.</li><li>Grade yourself against every standard. Anything outside standard, refly that lesson.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>All Lesson 18 and Lesson 20 standards, no restarts.</p></div>
+              <h4>Watch for</h4><ul><li>Getting tired. Stage checks are about holding the standard for a long time.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S4</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S11</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S12</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-29" data-n="29">
+        <summary>
+          <span class="l-num">29</span>
+          <span class="l-head"><span class="l-title">Stage Check 2: Precision + Missed</span><span class="l-meta">Glass Cockpit &middot; 30 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="29" aria-label="Mark lesson 29 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Fly an ILS to DA, go missed, and enter the hold.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>ILS Missed (Missed Approach Practice) scenario.</p>
+              <h4>The drill</h4><ol><li>Brief the whole thing, approach and missed, before you start.</li><li>Fly the ILS to DA, go missed, and fly into the hold.</li><li>Grade yourself. Anything outside standard, refly that lesson.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>All Lesson 23, 24, and 25 standards, no restarts.</p></div>
+              <h4>Watch for</h4><ul><li>Rushing the hold entry after a good approach.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.S12</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.S13</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.C.S1</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.C.S7</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S1</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="lesson" id="lesson-30" data-n="30">
+        <summary>
+          <span class="l-num">30</span>
+          <span class="l-head"><span class="l-title">The Full Profile</span><span class="l-meta">Glass Cockpit &middot; 45 min</span></span>
+          <label class="l-done" onclick="event.stopPropagation()"><input type="checkbox" data-done="30" aria-label="Mark lesson 30 done"><span>Done</span></label>
+        </summary>
+        <div class="l-body">
+          <p class="l-goal"><b>Goal.</b> Fly everything back to back like a checkride: RNAV approach, ILS with a missed, and a hold.</p>
+          <div class="l-grid">
+            <div>
+              <h4>Set up</h4><p>LNAV+VNAV, then ILS Missed. Ideally with an instructor watching.</p>
+              <h4>The drill</h4><ol><li>LNAV+VNAV approach to DA.</li><li>ILS approach to DA, go missed, enter and fly the hold.</li><li>Full debrief: every deviation, what caused it, and which lesson fixes it.</li><li>Come back to this lesson once a week as a proficiency check.</li></ol>
+            </div>
+            <div>
+              <div class="l-standard"><h4>Standard to hit</h4><p>Every standard in the plan, held across the whole profile.</p></div>
+              <h4>Watch for</h4><ul><li>This is the one to bring to your instructor before your next lesson in the airplane.</li></ul>
+              <h4>ACS elements</h4><p class="codes"><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.III.B.S4</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.A.S12</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.S12</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.B.S13</span><span class="code ir" title="Instrument Rating ACS (FAA-S-ACS-8C)">IR.VI.C.S1</span></p>
+            </div>
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="instructors" class="instructors">
+    <div class="wrap">
+      <div class="section-head" style="max-width:none;">
+        <p class="eyebrow" style="color:var(--amber);">For Instructors</p>
+        <p class="i-quote" style="margin-top:14px;">&ldquo;I made ChairFly for students, but it's really starting to feel like <span>ChairFly is made for instructors.</span>&rdquo;</p>
+        <p style="max-width:64ch;">CFIs and CFIIs are the ones putting ChairFly to work. They use it to brief a hold before anyone straps in, to show an approach as many times as a student needs, and to give students homework that keeps the scan from going stale between lessons. This plan is built to drop straight into your syllabus.</p>
+      </div>
+      <div class="i-grid">
+        <div class="i-card"><p class="tag">Before the flight</p><h3>Brief it on the iPad</h3><p>Pull up the scenario for today's lesson and walk the student through it at the table: the entry, the stepdowns, the missed. They show up to the airplane already knowing the picture.</p></div>
+        <div class="i-card"><p class="tag">Between flights</p><h3>Assign a lesson</h3><p>Give students a lesson number as homework. Each one has a goal and a standard, so you both know what "done" looks like.</p></div>
+        <div class="i-card"><p class="tag">After the flight</p><h3>Fix it on the ground</h3><p>Student blew a parallel entry? Assign Lesson 15. Sinking below the MDA? Lesson 20. Every lesson lists the ACS elements it supports.</p></div>
+        <div class="i-card"><p class="tag">Ground school</p><h3>Teach it twice</h3><p>Show holds, intercepts, full approaches, and missed approaches on screen as many times as the class needs, with no airplane time spent.</p></div>
+      </div>
+
+      <div class="i-sub">
+        <h3>Where it fits in your syllabus</h3>
+        <p>A suggested pairing between the plan and a typical instrument training sequence. Adjust it to your own syllabus and your student.</p>
+        <div style="overflow-x:auto;">
+          <table class="pair">
+            <thead><tr><th>When</th><th>Lessons</th><th>What they cover</th></tr></thead>
+            <tbody><tr><td>Before the first instrument lesson</td><td class="mono">1–5</td><td>6-Pack scan, straight and level, turns, climbs and descents</td></tr><tr><td>Before moving to a glass-panel airplane or sim</td><td class="mono">6–11</td><td>Reading the glass panel, the altitude selector, flying to ATC instructions</td></tr><tr><td>Before the first holding lesson</td><td class="mono">12–16</td><td>Orientation, all three entries, the racetrack</td></tr><tr><td>Between holding lessons</td><td class="mono">17–18</td><td>Rapid-fire entries and a full hold to standard</td></tr><tr><td>Before the first approach lesson</td><td class="mono">19–23</td><td>VOR stepdowns to the MDA, the ILS to DA</td></tr><tr><td>Before missed approaches</td><td class="mono">24–25</td><td>Going missed and flying the missed into the hold</td></tr><tr><td>Before RNAV approaches</td><td class="mono">26–27</td><td>LNAV and LNAV+VNAV</td></tr><tr><td>Before stage checks and the checkride</td><td class="mono">28–30</td><td>Full, self-graded profiles</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="i-sub">
+        <h3>A simple assign-and-check routine</h3>
+        <div class="flow">
+          <div><small>Step 1</small><b>Assign</b><p>Pick the lesson that matches the next flight, or the thing that went wrong on the last one.</p></div>
+          <div><small>Step 2</small><b>Practice</b><p>Student flies it at home until they hit the standard twice in a row.</p></div>
+          <div><small>Step 3</small><b>Show you</b><p>Before the next flight, the student flies it once in front of you. Five minutes at the table.</p></div>
+          <div><small>Step 4</small><b>Fly it</b><p>Now fly it in the airplane or sim, and see what changed.</p></div>
+        </div>
+      </div>
+
+      <div class="i-cta">
+        <a class="btn btn-amber" href="#p1">See the lessons</a>
+        <a class="btn btn-ghost" href="mailto:info@chairflytrainer.com?subject=ChairFly%20for%20my%20students">Questions? Email us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="get">
+    <div class="wrap">
+      <h2>Grab your iPad. ChairFly it.</h2>
+      <p>The 6-Pack lessons work on the free download. The Glass Cockpit and its scenarios come with the subscription, and there's a 7-day trial to get started.</p>
+      <div class="stack">
+        <a href="https://apps.apple.com/app/chairfly/id6805243067" aria-label="Download on the App Store"><img src="app-store-badge.svg" alt="Download on the App Store" style="display:block;width:180px;height:auto;"></a>
+        <span class="ipad-tag"><svg viewBox="0 0 11 13" aria-hidden="true"><rect x="0.75" y="0.75" width="9.5" height="11.5" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="5.5" cy="10.4" r="0.7" fill="currentColor"/></svg>iPad exclusive</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand"><img src="chairfly-logo.png" alt="ChairFly logo"><span>ChairFly</span></div>
+    <div>Built by pilots, for pilots who never stop training.</div>
+    <a class="footer-social" href="https://www.instagram.com/chairflytrainer/" target="_blank" rel="noopener" aria-label="ChairFly on Instagram (@chairflytrainer)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span><span class="fs-label">Follow us</span> @chairflytrainer</span></a>
+    <div class="footer-legal">
+      <a href="/">Home</a><span>&middot;</span>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a><span>&middot;</span>
+      <a href="/privacy.html">Privacy Policy</a><span>&middot;</span>
+      <a href="/disclaimer.html">Disclaimer</a><span>&middot;</span>
+      <a href="/support.html">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var KEY = 'chairfly-lessons-done';
+  var done = {};
+  try { done = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { done = {}; }
+  var boxes = document.querySelectorAll('input[data-done]');
+  function paint() {
+    var n = 0;
+    boxes.forEach(function (b) {
+      var id = b.getAttribute('data-done'), on = !!done[id];
+      b.checked = on; if (on) n++;
+      b.closest('details').classList.toggle('done', on);
+    });
+    document.getElementById('bar').style.width = (n / boxes.length * 100) + '%';
+    document.getElementById('count').textContent = n + ' / ' + boxes.length + ' done';
+  }
+  boxes.forEach(function (b) {
+    b.addEventListener('change', function () {
+      var id = b.getAttribute('data-done');
+      if (b.checked) done[id] = 1; else delete done[id];
+      try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {}
+      paint();
+    });
+  });
+  // Open a lesson linked by hash, e.g. lessons.html#lesson-15
+  function openHash() {
+    var el = location.hash && document.querySelector(location.hash);
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  }
+  window.addEventListener('hashchange', openHash);
+  openHash(); paint();
+})();
+</script>
+</body>
+</html>
