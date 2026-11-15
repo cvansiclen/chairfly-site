@@ -1,0 +1,1 @@
+{"icao":"15F","faa":"15F","name":"Haskell Muni","city":"Haskell","state":"TX","cycle":"2611","elevFt":1625,"magVar":5.0,"procedures":[{"name":"RNAV (GPS)-A","type":"RNAV","runway":null,"pdfs":["06302RA.PDF"],"amdt":"0A","amdtDate":"04/25/2019","flyable":false}]}

@@ -1,0 +1,1 @@
+{"icao":"KAJO","faa":"AJO","name":"Corona Muni","city":"Corona","state":"CA","cycle":"2611","elevFt":533,"magVar":14.0,"procedures":[{"name":"RNAV (GPS)-B","type":"RNAV","runway":null,"pdfs":["05987RB.PDF"],"amdt":"0","amdtDate":"04/17/2025","flyable":false},{"name":"VOR-A","type":"VOR","runway":null,"pdfs":["05987VA.PDF"],"amdt":"5A","amdtDate":"10/29/2026","flyable":false}]}

@@ -1,0 +1,1 @@
+{"icao":"12V","faa":"12V","name":"Ona Airpark","city":"Milton","state":"WV","cycle":"2611","elevFt":572,"magVar":-6.0,"procedures":[{"name":"RNAV (GPS)-A","type":"RNAV","runway":null,"pdfs":["06971RA.PDF"],"amdt":"0B","amdtDate":"09/10/2020","flyable":false},{"name":"VOR-A","type":"VOR","runway":null,"pdfs":["06971VA.PDF"],"amdt":"3","amdtDate":"","flyable":false}]}

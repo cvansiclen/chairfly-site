@@ -1,0 +1,1 @@
+{"icao":"KXNO","faa":"XNO","name":"North Af Aux","city":"North","state":"SC","cycle":"2611","elevFt":321,"magVar":-7.0,"procedures":[{"name":"RNAV (GPS) RWY 06","type":"RNAV","runway":"06","pdfs":["03017R6.PDF"],"amdt":"","amdtDate":"","flyable":false},{"name":"RNAV (GPS) RWY 24","type":"RNAV","runway":"24","pdfs":["03017R24.PDF"],"amdt":"","amdtDate":"","flyable":false}]}

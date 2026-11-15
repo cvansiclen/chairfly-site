@@ -1,0 +1,1 @@
+{"icao":"KIPL","faa":"IPL","name":"Imperial County","city":"Imperial","state":"CA","cycle":"2611","elevFt":-54,"magVar":10.0,"procedures":[{"name":"RNAV (GPS)-B","type":"RNAV","runway":null,"pdfs":["00790RB.PDF"],"amdt":"0","amdtDate":"11/27/2025","flyable":false},{"name":"VOR-A","type":"VOR","runway":null,"pdfs":["00790VA.PDF"],"amdt":"5","amdtDate":"","flyable":false}]}

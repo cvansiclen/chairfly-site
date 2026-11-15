@@ -1,0 +1,1 @@
+{"icao":"PKRO","faa":"ROI","name":"Dyess Aaf","city":"Roi-Namur,Mh","state":"XX","cycle":"2611","elevFt":14,"magVar":9.0,"procedures":[{"name":"RNAV (GPS) RWY 04","type":"RNAV","runway":"04","pdfs":["02436R4.PDF"],"amdt":"","amdtDate":"","flyable":false},{"name":"RNAV (GPS) RWY 22","type":"RNAV","runway":"22","pdfs":["02436R22.PDF"],"amdt":"","amdtDate":"","flyable":false}]}

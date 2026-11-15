@@ -1,0 +1,1 @@
+{"icao":"KNSI","faa":"NSI","name":"San Nicolas Island Nolf","city":"San Nicolas Island","state":"CA","cycle":"2611","elevFt":506,"magVar":12.0,"procedures":[{"name":"RNAV (GPS) RWY 30","type":"RNAV","runway":"30","pdfs":["05162R30.PDF"],"amdt":"","amdtDate":"","flyable":false}]}

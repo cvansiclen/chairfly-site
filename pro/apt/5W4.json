@@ -1,0 +1,1 @@
+{"icao":"5W4","faa":"5W4","name":"P K Airpark","city":"Raeford","state":"NC","cycle":"2611","elevFt":304,"magVar":-9.0,"procedures":[{"name":"RNAV (GPS)-A","type":"RNAV","runway":null,"pdfs":["06439RA.PDF"],"amdt":"0","amdtDate":"02/01/2018","flyable":false},{"name":"VOR-A","type":"VOR","runway":null,"pdfs":["06439VA.PDF"],"amdt":"4","amdtDate":"02/01/2018","flyable":false}]}

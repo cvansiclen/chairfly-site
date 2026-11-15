@@ -1,0 +1,1 @@
+{"icao":"3U3","faa":"3U3","name":"Bowman Fld","city":"Anaconda","state":"MT","cycle":"2611","elevFt":5034,"magVar":14.0,"procedures":[{"name":"RNAV (GPS)-B","type":"RNAV","runway":null,"pdfs":["06986RB.PDF"],"amdt":"0","amdtDate":"03/21/2024","flyable":false},{"name":"VOR-A","type":"VOR","runway":null,"pdfs":["06986VA.PDF"],"amdt":"2","amdtDate":"03/21/2024","flyable":false}]}

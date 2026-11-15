@@ -1,0 +1,1 @@
+{"icao":"KHND","faa":"HND","name":"Henderson Exec","city":"Las Vegas","state":"NV","cycle":"2611","elevFt":2491,"magVar":13.0,"procedures":[{"name":"RNAV (GPS)-B","type":"RNAV","runway":null,"pdfs":["06514RB.PDF"],"amdt":"2","amdtDate":"","flyable":false},{"name":"VOR-C","type":"VOR","runway":null,"pdfs":["06514VC.PDF"],"amdt":"1A","amdtDate":"","flyable":false}]}

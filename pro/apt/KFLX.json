@@ -1,0 +1,1 @@
+{"icao":"KFLX","faa":"FLX","name":"Fallon Muni","city":"Fallon","state":"NV","cycle":"2611","elevFt":3966,"magVar":14.0,"procedures":[{"name":"RNAV (GPS)-C","type":"RNAV","runway":null,"pdfs":["00786RC.PDF"],"amdt":"0B","amdtDate":"08/13/2020","flyable":false},{"name":"VOR-B","type":"VOR","runway":null,"pdfs":["00786VB.PDF"],"amdt":"4B","amdtDate":"","flyable":false}]}

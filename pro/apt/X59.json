@@ -1,0 +1,1 @@
+{"icao":"X59","faa":"X59","name":"Valkaria","city":"Valkaria","state":"FL","cycle":"2611","elevFt":26,"magVar":-7.0,"procedures":[{"name":"RNAV (GPS)-A","type":"RNAV","runway":null,"pdfs":["11694RA.PDF"],"amdt":"0","amdtDate":"","flyable":false},{"name":"RNAV (GPS)-B","type":"RNAV","runway":null,"pdfs":["11694RB.PDF"],"amdt":"0","amdtDate":"","flyable":false}]}

@@ -1,0 +1,1 @@
+{"icao":"KPOB","faa":"POB","name":"Pope Aaf","city":"Fort Bragg","state":"NC","cycle":"2611","elevFt":218,"magVar":-7.0,"procedures":[{"name":"ILS OR LOC RWY 23","type":"ILS","runway":"23","pdfs":["00147IL23.PDF"],"amdt":"","amdtDate":"","flyable":false},{"name":"RNAV (GPS) RWY 23","type":"RNAV","runway":"23","pdfs":["00147R23.PDF"],"amdt":"","amdtDate":"","flyable":false}]}

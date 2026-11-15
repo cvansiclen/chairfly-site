@@ -1,0 +1,1 @@
+{"icao":"KHFF","faa":"HFF","name":"Mackall Aaf","city":"Camp Mackall","state":"NC","cycle":"2611","elevFt":376,"magVar":-9.0,"procedures":[{"name":"RNAV (GPS) RWY 12","type":"RNAV","runway":"12","pdfs":["06315R12.PDF"],"amdt":"","amdtDate":"","flyable":false},{"name":"RNAV (GPS) RWY 30","type":"RNAV","runway":"30","pdfs":["06315R30.PDF"],"amdt":"","amdtDate":"","flyable":false}]}

@@ -1,0 +1,1 @@
+{"icao":"KAPG","faa":"APG","name":"Phillips Aaf (Aberdeen Proving Ground)","city":"Aberdeen","state":"MD","cycle":"2611","elevFt":45,"magVar":-10.0,"procedures":[{"name":"RNAV (GPS) RWY 22","type":"RNAV","runway":"22","pdfs":["00555R22.PDF"],"amdt":"","amdtDate":"","flyable":false}]}

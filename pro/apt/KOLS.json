@@ -1,0 +1,1 @@
+{"icao":"KOLS","faa":"OLS","name":"Nogales Intl","city":"Nogales","state":"AZ","cycle":"2611","elevFt":3955,"magVar":9.0,"procedures":[{"name":"RNAV (GPS)-A","type":"RNAV","runway":null,"pdfs":["06151RA.PDF"],"amdt":"0","amdtDate":"03/21/2024","flyable":false},{"name":"VOR-B","type":"VOR","runway":null,"pdfs":["06151VB.PDF"],"amdt":"0","amdtDate":"03/21/2024","flyable":false}]}

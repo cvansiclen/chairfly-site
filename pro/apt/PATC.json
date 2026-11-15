@@ -1,0 +1,1 @@
+{"icao":"PATC","faa":"TNC","name":"Tin City Lrrs","city":"Tin City","state":"AK","cycle":"2611","elevFt":273,"magVar":6.0,"procedures":[{"name":"RNAV (GPS) RWY 35","type":"RNAV","runway":"35","pdfs":["02334R35.PDF"],"amdt":"","amdtDate":"","flyable":false}]}
