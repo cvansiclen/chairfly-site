@@ -1,0 +1,49 @@
+name: ChairFly Pro data
+
+# Rebuilds /pro/ (approach list + fixes for the iPad app) when a new FAA 28-day cycle comes out.
+# Runs every day but only does real work on the first run of a new cycle. Netlify redeploys the
+# site automatically when this pushes. "Run workflow" on the Actions tab forces a rebuild.
+on:
+  schedule:
+    - cron: "17 10 * * *"   # 10:17 UTC daily (~2:17am Pacific)
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Rebuild even if already on the current cycle"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build Pro data
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force }}" = "true" ]; then
+            python3 tools/build_pro_data.py --out . --force
+          else
+            python3 tools/build_pro_data.py --out .
+          fi
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "chairfly-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add pro
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            CYCLE=$(python3 -c "import json;print(json.load(open('pro/meta.json'))['cycle'])")
+            git commit -m "Pro data: FAA cycle $CYCLE"
+            git push
+          fi
