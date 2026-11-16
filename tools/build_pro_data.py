@@ -377,7 +377,10 @@ def match_cifp(T, icao, proc):
             if (m.group(2) or None) != var:
                 continue
         else:
-            m = re.match(r"^(?:DM|M)?-?([A-Z])$", rest)
+            # circling: no runway digits; ends in the variant letter, e.g. "VOR-A", "VDM-A", "RNV-B", "R-B", "VDMA"
+            if any(ch.isdigit() for ch in rest):
+                continue
+            m = re.match(r"^[A-Z/]{0,4}?-?([A-Z])$", rest)
             if not m or m.group(1) != var:
                 continue
         # prefer the plate's own letter order (e.g. ILS before LOC, RNAV 'R' before GPS 'P')
@@ -470,7 +473,7 @@ def build_procedure(T, icao, ref, proc):
             continue
         pts = [p for p in leg_points(T, icao, ref, sorted(tl, key=lambda l: l["seq"])) if not p.get("hold")]
         if pts:
-            tr_out.append({"id": name, "fixes": [{"id": p["id"], "e": p["e"], "n": p["n"], "alt": p["alt"], "navaid": p["navaid"]} for p in pts]})
+            tr_out.append({"id": name, "fixes": [{"id": p["id"], "e": p["e"], "n": p["n"], "alt": p["alt"], "navaid": p["navaid"], "role": p["role"]} for p in pts]})
     result["transitions"] = tr_out
     return result
 
@@ -516,6 +519,18 @@ def build(out_dir, cycle, dtpp_bytes, cifp_text):
         with open(os.path.join(apt_dir, f"{icao}.json"), "w") as fh:
             json.dump(doc, fh, separators=(",", ":"))
         index.append([icao, a["faa"], a["name"], a["city"], a["state"], len(procs)])
+
+    # Debug list (11/15/26): plates that didn't match any CIFP procedure, with the airport's CIFP ids,
+    # so naming mismatches can be fixed from the real data.
+    unmatched = []
+    for icao in sorted(airports):
+        ids = sorted({pid for (a, pid) in T["legs"].keys() if a == icao})
+        for p in airports[icao]["procs"]:
+            if not (T["apt"].get(icao) and match_cifp(T, icao, p)):
+                unmatched.append({"apt": icao, "name": p["name"], "type": p["type"], "rwy": p["runway"],
+                                  "var": p["variant"], "cifpIds": ids, "hasAirport": icao in T["apt"]})
+    with open(os.path.join(pro, "unmatched.json"), "w") as fh:
+        json.dump({"count": len(unmatched), "items": unmatched}, fh, separators=(",", ":"))
 
     with open(os.path.join(pro, "airports.json"), "w") as fh:
         json.dump({"cycle": cycle, "airports": index}, fh, separators=(",", ":"))
