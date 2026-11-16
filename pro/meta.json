@@ -3,8 +3,8 @@
  "effective": "2026-10-29",
  "expires": "2026-11-26",
  "plateBaseURL": "https://aeronav.faa.gov/d-tpp/2611/",
- "generated": "2026-11-15T18:51:46Z",
+ "generated": "2026-11-16T01:49:01Z",
  "airportCount": 3161,
  "approachCount": 9262,
- "flyableCount": 7971
+ "flyableCount": 8392
 }
